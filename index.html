@@ -1107,6 +1107,7 @@
             if (tabId === 'dashboard') refreshDashboard();
             else if (tabId === 'mesin') renderTabelMesin();
             else if (tabId === 'sparepart') renderTabelSparepart();
+            else if (tabId === 'jual-mesin') renderRiwayatJualMesin();
             else if (tabId === 'opname') renderTabelOpname();
             else if (tabId === 'pengeluaran') renderTabelPengeluaran();
         });
@@ -1882,12 +1883,31 @@
                         <td class="p-2 font-semibold text-white">${j.nomorMesin}</td>
                         <td class="p-2">${j.pembeli}</td>
                         <td class="p-2 font-bold text-brand-400">${formatRupiah(j.hargaJual)}</td>
-                        <td class="p-2 text-center">
+                        <td class="p-2 text-center space-x-1">
                             <button onclick='cetakNotaMesin(${JSON.stringify(j)})' class="text-blue-400 hover:text-blue-300 p-1" title="Cetak Nota"><i class="fa-solid fa-print"></i></button>
+                            <button onclick="hapusPenjualanMesin('${j.id}')" class="text-rose-400 hover:text-rose-300 p-1" title="Hapus Transaksi"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
                 `;
             });
+        }
+
+        function hapusPenjualanMesin(id) {
+            if(confirm("Yakin ingin menghapus riwayat penjualan ini? Status mesin akan dikembalikan ke Ready.")) {
+                const transaksi = (db.penjualanMesin || []).find(j => j.id === id);
+                if(transaksi) {
+                    // Kembalikan status mesin ke Ready jika mesin masih ada di database
+                    const m = (db.mesin || []).find(item => item.id === transaksi.mesinId);
+                    if(m) {
+                        m.status = "Ready";
+                    }
+                    // Hapus transaksi penjualan dari daftar
+                    db.penjualanMesin = db.penjualanMesin.filter(j => j.id !== id);
+                    saveDB();
+                    showToast("Penjualan dibatalkan & status mesin dikembalikan!", "error");
+                    initJualMesinForm();
+                }
+            }
         }
 
         function cetakNotaMesin(j) {
