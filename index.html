@@ -133,7 +133,7 @@
             </nav>
 
             <div class="p-4 border-t border-slate-800 text-xs text-slate-400 flex justify-between items-center">
-                <span>Versi 1.4.0 Firebase</span>
+                <span>Versi 1.5.0 Firebase</span>
                 <span id="system-time">00:00:00</span>
             </div>
         </aside>
@@ -168,8 +168,6 @@
                 
                 <!-- ================= TAB: DASHBOARD ================= -->
                 <div id="tab-dashboard" class="tab-content space-y-6">
-                    
-                    <!-- Grid Utama Finansial & Mesin -->
                     <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                         <div class="bg-slate-950 border border-slate-800 p-3.5 md:p-4 rounded-xl">
                             <p class="text-[11px] md:text-xs text-slate-400">Total Modal Barang (Ready)</p>
@@ -205,7 +203,6 @@
                         </div>
                     </div>
 
-                    <!-- RINGKASAN DATA SPAREPART DI DASHBOARD -->
                     <div class="bg-slate-950 border border-slate-800 p-4 md:p-5 rounded-xl space-y-4">
                         <div class="flex justify-between items-center border-b border-slate-800 pb-2">
                             <h3 class="font-bold text-sm md:text-base text-white flex items-center gap-2">
@@ -245,7 +242,6 @@
                             </div>
                         </div>
 
-                        <!-- Mini Tabel Quick View Sparepart Dashboard -->
                         <div class="overflow-x-auto pt-2">
                             <h4 class="text-xs font-semibold text-slate-400 mb-2">Daftar Stok Sparepart Cepat:</h4>
                             <table class="w-full text-left text-xs min-w-[500px]">
@@ -260,13 +256,11 @@
                                     </tr>
                                 </thead>
                                 <tbody id="dash-tabel-sp-body" class="divide-y divide-slate-800/60">
-                                    <!-- Dynamic JS -->
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <!-- Rekomendasi Alokasi Dana & Financial Card -->
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="bg-slate-950 border border-slate-800 p-4 md:p-5 rounded-xl lg:col-span-1 space-y-4">
                             <h3 class="font-bold text-sm md:text-md text-white border-b border-slate-800 pb-2"><i class="fa-solid fa-piggy-bank mr-2 text-brand-500"></i>Alokasi Keuangan</h3>
@@ -284,12 +278,8 @@
                                     <span id="rec-darurat" class="font-bold text-amber-400">Rp 0</span>
                                 </div>
                             </div>
-                            <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 text-[11px] text-slate-400">
-                                * Perhitungan otomatis berdasarkan akumulasi laba bersih dan persentase di pengaturan.
-                            </div>
                         </div>
 
-                        <!-- Charts -->
                         <div class="bg-slate-950 border border-slate-800 p-4 md:p-5 rounded-xl lg:col-span-2 space-y-4">
                             <h3 class="font-bold text-sm md:text-md text-white border-b border-slate-800 pb-2"><i class="fa-solid fa-chart-line mr-2 text-brand-500"></i>Grafik Penjualan & Laba</h3>
                             <div class="h-56 md:h-64">
@@ -303,7 +293,7 @@
                 <div id="tab-mesin" class="tab-content hidden space-y-4 md:space-y-6">
                     <div class="flex flex-col sm:flex-row justify-between gap-3">
                         <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                            <input type="text" id="search-mesin" onkeyup="renderTabelMesin()" placeholder="Cari nomor/merk..." class="bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-500 w-full sm:w-64">
+                            <input type="text" id="search-mesin" onkeyup="renderTabelMesin()" placeholder="Cari nomor/merk/catatan..." class="bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-500 w-full sm:w-64">
                             <select id="filter-status-mesin" onchange="renderTabelMesin()" class="bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-500 w-full sm:w-auto">
                                 <option value="">Semua Status</option>
                                 <option value="Ready">Ready</option>
@@ -316,9 +306,9 @@
                         </button>
                     </div>
 
-                    <!-- Tabel Mesin -->
+                    <!-- Tabel Mesin (Updated with Catatan / Keterangan Column) -->
                     <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-x-auto">
-                        <table class="w-full text-left text-sm min-w-[700px]">
+                        <table class="w-full text-left text-sm min-w-[850px]">
                             <thead class="bg-slate-900 border-b border-slate-800 text-slate-400 text-xs uppercase">
                                 <tr>
                                     <th class="p-3 w-16 text-center">Foto</th>
@@ -328,6 +318,7 @@
                                     <th class="p-3">Total Modal</th>
                                     <th class="p-3">Harga Jual</th>
                                     <th class="p-3">Status</th>
+                                    <th class="p-3">Catatan / Keterangan</th>
                                     <th class="p-3 text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -371,7 +362,6 @@
                         </button>
                     </div>
 
-                    <!-- Tabel Sparepart -->
                     <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-x-auto">
                         <table class="w-full text-left text-sm min-w-[700px]">
                             <thead class="bg-slate-900 border-b border-slate-800 text-slate-400 text-xs uppercase">
@@ -387,7 +377,6 @@
                                 </tr>
                             </thead>
                             <tbody id="tabel-sparepart-body" class="divide-y divide-slate-800">
-                                <!-- Dynamic JS -->
                             </tbody>
                         </table>
                     </div>
@@ -420,7 +409,6 @@
                                 </div>
                             </div>
 
-                            <!-- Dynamic Items Pembelian -->
                             <div class="border-t border-slate-800 pt-4">
                                 <div class="flex justify-between items-center mb-2">
                                     <h4 class="font-semibold text-xs md:text-sm text-slate-300">Daftar Item Sparepart</h4>
@@ -438,13 +426,11 @@
                                             </tr>
                                         </thead>
                                         <tbody id="list-item-beli" class="divide-y divide-slate-800">
-                                            <!-- Dynamic rows -->
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
 
-                            <!-- Kalkulasi Total -->
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 pt-4 border-t border-slate-800">
                                 <div>
                                     <label class="block text-xs text-slate-400 mb-1">Ongkos Kirim</label>
@@ -470,7 +456,6 @@
                 <!-- ================= TAB: PENJUALAN MESIN ================= -->
                 <div id="tab-jual-mesin" class="tab-content hidden space-y-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Form Penjualan -->
                         <div class="bg-slate-950 border border-slate-800 p-4 md:p-6 rounded-xl space-y-4">
                             <h3 class="font-bold text-base md:text-lg text-white"><i class="fa-solid fa-cash-register mr-2 text-brand-500"></i>Form Penjualan Mesin</h3>
                             <form id="form-jual-mesin" onsubmit="simpanPenjualanMesin(event)" class="space-y-4">
@@ -541,7 +526,6 @@
                             </form>
                         </div>
 
-                        <!-- Riwayat Penjualan Mesin -->
                         <div class="bg-slate-950 border border-slate-800 p-4 md:p-6 rounded-xl space-y-4">
                             <h3 class="font-bold text-base md:text-lg text-white"><i class="fa-solid fa-history mr-2 text-brand-500"></i>Riwayat Penjualan Mesin</h3>
                             <div class="overflow-x-auto max-h-[500px]">
@@ -556,7 +540,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="riwayat-jual-mesin-body" class="divide-y divide-slate-800">
-                                        <!-- Dynamic JS -->
                                     </tbody>
                                 </table>
                             </div>
@@ -597,7 +580,6 @@
                                             </tr>
                                         </thead>
                                         <tbody id="list-item-jual-sparepart" class="divide-y divide-slate-800">
-                                            <!-- Dynamic rows -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -613,10 +595,9 @@
                     </div>
                 </div>
 
-                <!-- ================= TAB: KELOLA HUTANG & TANGGUNGAN ================= -->
+                <!-- ================= TAB: KELOLA HUTANG ================= -->
                 <div id="tab-hutang" class="tab-content hidden space-y-6">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <!-- Form Tambah Hutang -->
                         <div class="bg-slate-950 border border-slate-800 p-4 md:p-6 rounded-xl space-y-4">
                             <h3 class="font-bold text-base md:text-lg text-white border-b border-slate-800 pb-2">
                                 <i class="fa-solid fa-file-invoice-dollar mr-2 text-brand-500"></i>Catat Hutang Baru
@@ -650,7 +631,6 @@
                             </form>
                         </div>
 
-                        <!-- Daftar & Status Hutang -->
                         <div class="bg-slate-950 border border-slate-800 p-4 md:p-6 rounded-xl space-y-4 lg:col-span-2">
                             <div class="flex justify-between items-center border-b border-slate-800 pb-2">
                                 <h3 class="font-bold text-base md:text-lg text-white">Daftar Tanggungan Hutang</h3>
@@ -671,7 +651,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tabel-hutang-body" class="divide-y divide-slate-800">
-                                        <!-- Dynamic JS -->
                                     </tbody>
                                 </table>
                             </div>
@@ -698,7 +677,6 @@
                                 </tr>
                             </thead>
                             <tbody id="tabel-opname-body" class="divide-y divide-slate-800">
-                                <!-- Dynamic JS -->
                             </tbody>
                         </table>
                     </div>
@@ -754,7 +732,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tabel-pengeluaran-body" class="divide-y divide-slate-800">
-                                        <!-- Dynamic JS -->
                                     </tbody>
                                 </table>
                             </div>
@@ -810,7 +787,6 @@
                         </div>
                     </div>
 
-                    <!-- Hasil Render Laporan -->
                     <div id="laporan-result-container" class="bg-slate-950 border border-slate-800 p-4 md:p-6 rounded-xl space-y-4 print-area">
                         <div class="text-center border-b border-slate-800 pb-4">
                             <h2 id="lap-title-print" class="font-bold text-lg md:text-xl text-white">Laporan Operasional</h2>
@@ -825,7 +801,6 @@
                 <!-- ================= TAB: PENGATURAN ================= -->
                 <div id="tab-pengaturan" class="tab-content hidden space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Form Identitas -->
                         <div class="bg-slate-950 border border-slate-800 p-4 md:p-6 rounded-xl space-y-4">
                             <h3 class="font-bold text-base md:text-lg text-white"><i class="fa-solid fa-gear mr-2 text-brand-500"></i>Identitas Toko & Konfigurasi</h3>
                             <form id="form-pengaturan" onsubmit="simpanPengaturan(event)" class="space-y-4">
@@ -859,7 +834,6 @@
                             </form>
                         </div>
 
-                        <!-- Form Keamanan PIN & Backup/Reset -->
                         <div class="space-y-6">
                             <div class="bg-slate-950 border border-slate-800 p-4 md:p-6 rounded-xl space-y-4">
                                 <h3 class="font-bold text-base md:text-lg text-white"><i class="fa-solid fa-key mr-2 text-brand-500"></i>Pengaturan Akses Kunci PIN</h3>
@@ -935,7 +909,7 @@
         </div>
     </div>
 
-    <!-- MODAL INPUT MESIN -->
+    <!-- MODAL INPUT MESIN (Updated with Catatan Field) -->
     <div id="modal-mesin" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-950 border border-slate-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-4 md:p-6 space-y-4">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -1017,6 +991,13 @@
                         <input type="number" id="m-hargajual" required class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-500 font-bold text-brand-400">
                     </div>
                 </div>
+
+                <!-- NEW: Field Catatan/Keterangan -->
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Catatan / Keterangan Mesin</label>
+                    <textarea id="m-catatan" rows="2" placeholder="Contoh: Kondisi pengapian bagus, karburator baru diservis, minus knalpot agak karat" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-500"></textarea>
+                </div>
+
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">Upload Foto Mesin</label>
                     <input type="file" id="m-foto" accept="image/*" class="w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-brand-600 file:text-white hover:file:bg-brand-700">
@@ -1104,7 +1085,6 @@
     <div id="modal-nota" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white text-slate-900 rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto p-4 md:p-6 space-y-4">
             <div id="nota-content" class="space-y-3 text-xs md:text-sm font-mono">
-                <!-- Nota rendered here -->
             </div>
             <div class="flex justify-end gap-2 pt-3 no-print border-t border-slate-200">
                 <button onclick="window.print()" class="bg-brand-600 text-white px-4 py-2 rounded-lg text-xs md:text-sm font-semibold flex items-center gap-1"><i class="fa-solid fa-print"></i> Cetak / Thermal</button>
@@ -1194,8 +1174,8 @@
                 };
             } else {
                 window.db.mesin = [
-                    { id: "M001", nomor: "GX160-8821", merk: "Honda", model: "GX160", jenis: "Gasoline Engine", kondisi: "Bekas Rekondisi", tgl: "2026-06-01", supplier: "Bpk. Budi", hargabeli: 800000, angkut: 50000, servis: 100000, sparepart: 150000, totalmodal: 1100000, hargajual: 1650000, status: "Ready", foto: "", sumberModal: "Sendiri" },
-                    { id: "M002", nomor: "EY20-9932", merk: "Robin", model: "EY20", jenis: "Gasoline Engine", kondisi: "Bekas Layak", tgl: "2026-06-05", supplier: "Sugeng", hargabeli: 600000, angkut: 30000, servis: 75000, sparepart: 95000, totalmodal: 800000, hargajual: 1250000, status: "Ready", foto: "", sumberModal: "Sendiri" }
+                    { id: "M001", nomor: "GX160-8821", merk: "Honda", model: "GX160", jenis: "Gasoline Engine", kondisi: "Bekas Rekondisi", tgl: "2026-06-01", supplier: "Bpk. Budi", hargabeli: 800000, angkut: 50000, servis: 100000, sparepart: 150000, totalmodal: 1100000, hargajual: 1650000, status: "Ready", foto: "", sumberModal: "Sendiri", catatan: "Mesin ganti karburator baru, oli baru" },
+                    { id: "M002", nomor: "EY20-9932", merk: "Robin", model: "EY20", jenis: "Gasoline Engine", kondisi: "Bekas Layak", tgl: "2026-06-05", supplier: "Sugeng", hargabeli: 600000, angkut: 30000, servis: 75000, sparepart: 95000, totalmodal: 800000, hargajual: 1250000, status: "Ready", foto: "", sumberModal: "Sendiri", catatan: "Pengapian ori standar" }
                 ];
                 window.db.sparepart = [
                     { kode: "SP-01", nama: "Piston Standar GX160", kategori: "Piston", stok: 15, hargabeli: 45000, hargajual: 75000, minstock: 3, lokasi: "Rak A1", foto: "" },
@@ -1338,7 +1318,7 @@
             }, 3000);
         }
 
-        // --- DASHBOARD & CALCULATIONS ---
+        // --- DASHBOARD CALCULATIONS ---
         let salesChart = null;
 
         function refreshDashboard() {
@@ -1349,175 +1329,242 @@
             const nilaiSparepart = (db.sparepart || [])
                 .reduce((sum, sp) => sum + (Number(sp.stok) * Number(sp.hargabeli)), 0);
 
-            const todayStr = new Date().toISOString().split('T')[0];
-            const currentMonthYear = todayStr.substring(0, 7);
+            const today = new Date().toISOString().split('T')[0];
+            const currentMonth = today.substring(0, 7);
 
-            let jualHariIni = 0;
-            let jualBulanIni = 0;
-            let totalPenjualanAll = 0;
-            let totalModalTerjual = 0;
+            const jualMesinHariIni = (db.penjualanMesin || [])
+                .filter(p => p.tgl === today)
+                .reduce((sum, p) => sum + Number(p.hargajual), 0);
+            const jualSparepartHariIni = (db.penjualanSparepart || [])
+                .filter(p => p.tgl === today)
+                .reduce((sum, p) => sum + Number(p.total), 0);
+            const totalJualHariIni = jualMesinHariIni + jualSparepartHariIni;
 
-            (db.penjualanMesin || []).forEach(j => {
-                totalPenjualanAll += Number(j.hargaJual);
-                totalModalTerjual += Number(j.modal);
-                if(j.tgl === todayStr) jualHariIni += Number(j.hargaJual);
-                if(j.tgl && j.tgl.startsWith(currentMonthYear)) jualBulanIni += Number(j.hargaJual);
-            });
+            const jualMesinBulanIni = (db.penjualanMesin || [])
+                .filter(p => p.tgl && p.tgl.startsWith(currentMonth))
+                .reduce((sum, p) => sum + Number(p.hargajual), 0);
+            const jualSparepartBulanIni = (db.penjualanSparepart || [])
+                .filter(p => p.tgl && p.tgl.startsWith(currentMonth))
+                .reduce((sum, p) => sum + Number(p.total), 0);
+            const totalJualBulanIni = jualMesinBulanIni + jualSparepartBulanIni;
 
-            (db.penjualanSparepart || []).forEach(js => {
-                totalPenjualanAll += Number(js.grandTotal);
-                if(js.tgl === todayStr) jualHariIni += Number(js.grandTotal);
-                if(js.tgl && js.tgl.startsWith(currentMonthYear)) jualBulanIni += Number(js.grandTotal);
-            });
+            const totalLabaMesin = (db.penjualanMesin || []).reduce((sum, p) => sum + Number(p.laba), 0);
+            const totalLabaSparepart = (db.penjualanSparepart || []).reduce((sum, p) => sum + Number(p.laba), 0);
+            const totalPengeluaran = (db.pengeluaran || []).reduce((sum, e) => sum + Number(e.nominal), 0);
+            const labaBersih = (totalLabaMesin + totalLabaSparepart) - totalPengeluaran;
 
-            let totalPengeluaran = 0;
-            (db.pengeluaran || []).forEach(e => totalPengeluaran += Number(e.nominal));
-            (db.pembelianSparepart || []).forEach(ps => {
-                if(ps.metode !== 'SpayLater') totalPengeluaran += Number(ps.grandTotal);
-            });
-
-            const totalHutangSisa = (db.hutang || []).reduce((sum, h) => sum + (Number(h.total) - Number(h.terbayar)), 0);
-
-            const labaBersih = totalPenjualanAll - totalModalTerjual - totalPengeluaran;
-            const uangKas = totalPenjualanAll - totalPengeluaran;
-
-            const pctModal = db.pengaturan.pctModal || 70;
-            const pctTabungan = db.pengaturan.pctTabungan || 20;
-            const pctDarurat = db.pengaturan.pctDarurat || 10;
-
-            const recModalPutar = (labaBersih > 0 ? labaBersih : 0) * (pctModal / 100);
-            const recTabungan = (labaBersih > 0 ? labaBersih : 0) * (pctTabungan / 100);
-            const recDarurat = (labaBersih > 0 ? labaBersih : 0) * (pctDarurat / 100);
+            const totalHutang = (db.hutang || []).reduce((sum, h) => sum + Number(h.sisa), 0);
+            const uangKas = labaBersih - totalHutang;
 
             document.getElementById('dash-modal-barang').innerText = formatRupiah(modalBarangReady);
             document.getElementById('dash-nilai-sparepart').innerText = formatRupiah(nilaiSparepart);
-            document.getElementById('dash-jual-hari-ini').innerText = formatRupiah(jualHariIni);
-            document.getElementById('dash-jual-bulan-ini').innerText = formatRupiah(jualBulanIni);
+            document.getElementById('dash-jual-hari-ini').innerText = formatRupiah(totalJualHariIni);
+            document.getElementById('dash-jual-bulan-ini').innerText = formatRupiah(totalJualBulanIni);
             document.getElementById('dash-laba-bersih').innerText = formatRupiah(labaBersih);
             document.getElementById('dash-pengeluaran').innerText = formatRupiah(totalPengeluaran);
             document.getElementById('dash-uang-kas').innerText = formatRupiah(uangKas);
-            document.getElementById('dash-total-hutang').innerText = formatRupiah(totalHutangSisa);
+            document.getElementById('dash-total-hutang').innerText = formatRupiah(totalHutang);
 
-            document.getElementById('lbl-pct-modal').innerText = pctModal;
-            document.getElementById('lbl-pct-tabungan').innerText = pctTabungan;
-            document.getElementById('lbl-pct-darurat').innerText = pctDarurat;
+            const pModal = db.pengaturan.pctModal || 70;
+            const pTabungan = db.pengaturan.pctTabungan || 20;
+            const pDarurat = db.pengaturan.pctDarurat || 10;
 
-            document.getElementById('rec-modal-putar').innerText = formatRupiah(recModalPutar);
-            document.getElementById('rec-tabungan').innerText = formatRupiah(recTabungan);
-            document.getElementById('rec-darurat').innerText = formatRupiah(recDarurat);
+            document.getElementById('lbl-pct-modal').innerText = pModal;
+            document.getElementById('lbl-pct-tabungan').innerText = pTabungan;
+            document.getElementById('lbl-pct-darurat').innerText = pDarurat;
 
-            renderDashboardSparepartData();
-            renderChartPenjualan();
+            const baseLaba = labaBersih > 0 ? labaBersih : 0;
+            document.getElementById('rec-modal-putar').innerText = formatRupiah(baseLaba * (pModal / 100));
+            document.getElementById('rec-tabungan').innerText = formatRupiah(baseLaba * (pTabungan / 100));
+            document.getElementById('rec-darurat').innerText = formatRupiah(baseLaba * (pDarurat / 100));
+
+            const totalJenisSp = (db.sparepart || []).length;
+            const totalStokSp = (db.sparepart || []).reduce((s, sp) => s + Number(sp.stok), 0);
+            const warningSp = (db.sparepart || []).filter(sp => Number(sp.stok) <= Number(sp.minstock)).length;
+
+            document.getElementById('dash-sp-total-jenis').innerText = `${totalJenisSp} Jenis`;
+            document.getElementById('dash-sp-total-stok').innerText = `${totalStokSp} Unit`;
+            document.getElementById('dash-sp-warning').innerText = `${warningSp} Item`;
+
+            renderDashTabelSparepart();
+            renderChart();
         }
 
-        function renderDashboardSparepartData() {
-            const listSp = db.sparepart || [];
-            document.getElementById('dash-sp-total-jenis').innerText = `${listSp.length} Jenis`;
-            document.getElementById('dash-sp-total-stok').innerText = `${listSp.reduce((sum, sp) => sum + Number(sp.stok), 0)} Unit`;
-            
-            const warningItems = listSp.filter(sp => sp.stok <= sp.minstock);
-            const warnEl = document.getElementById('dash-sp-warning');
-            warnEl.innerText = `${warningItems.length} Item`;
-            warnEl.className = warningItems.length > 0 ? "text-lg md:text-xl font-bold text-rose-400 mt-0.5 animate-pulse" : "text-lg md:text-xl font-bold text-emerald-400 mt-0.5";
-
+        function renderDashTabelSparepart() {
             const tbody = document.getElementById('dash-tabel-sp-body');
-            tbody.innerHTML = "";
+            tbody.innerHTML = '';
 
-            if(listSp.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Belum ada sparepart terdaftar.</td></tr>`;
+            const items = (db.sparepart || []).slice(0, 5);
+            if (items.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Belum ada data sparepart.</td></tr>`;
                 return;
             }
 
-            listSp.slice(0, 5).forEach(sp => {
-                let statusBadge = sp.stok <= sp.minstock 
-                    ? `<span class="px-2 py-0.5 rounded text-[10px] bg-rose-900/40 text-rose-400 border border-rose-800">Menipis</span>`
-                    : `<span class="px-2 py-0.5 rounded text-[10px] bg-emerald-900/40 text-emerald-400 border border-emerald-800">Aman</span>`;
+            items.forEach(sp => {
+                const isWarn = Number(sp.stok) <= Number(sp.minstock);
+                const statusBadge = isWarn 
+                    ? `<span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-400 font-semibold border border-amber-500/30">Stok Menipis</span>`
+                    : `<span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">Aman</span>`;
 
-                let imgThumb = sp.foto 
-                    ? `<img src="${sp.foto}" onclick="openModalPreviewFoto('${sp.foto}', '${sp.nama}')" class="w-8 h-8 object-cover rounded mx-auto border border-slate-700 cursor-pointer">`
-                    : `<div class="w-8 h-8 rounded bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 mx-auto text-[10px]"><i class="fa-solid fa-image"></i></div>`;
+                const fotoHtml = sp.foto 
+                    ? `<img src="${sp.foto}" onclick="openModalPreviewFoto('${sp.foto}', '${sp.nama}')" class="w-8 h-8 object-cover rounded cursor-pointer mx-auto">`
+                    : `<div class="w-8 h-8 rounded bg-slate-800 text-slate-500 flex items-center justify-center text-xs mx-auto"><i class="fa-solid fa-image"></i></div>`;
 
                 tbody.innerHTML += `
-                    <tr class="hover:bg-slate-900/40">
-                        <td class="p-2 text-center">${imgThumb}</td>
-                        <td class="p-2 font-semibold text-white">${sp.kode}</td>
-                        <td class="p-2">${sp.nama}</td>
+                    <tr>
+                        <td class="p-2 text-center">${fotoHtml}</td>
+                        <td class="p-2 font-mono text-slate-300">${sp.kode}</td>
+                        <td class="p-2 font-medium text-white">${sp.nama}</td>
                         <td class="p-2 text-slate-400">${sp.lokasi || '-'}</td>
-                        <td class="p-2 font-bold ${sp.stok <= sp.minstock ? 'text-rose-400' : 'text-white'}">${sp.stok} unit</td>
+                        <td class="p-2 font-bold ${isWarn ? 'text-amber-400' : 'text-slate-200'}">${sp.stok}</td>
                         <td class="p-2 text-center">${statusBadge}</td>
                     </tr>
                 `;
             });
         }
 
-        function renderChartPenjualan() {
+        function renderChart() {
             const ctx = document.getElementById('chartPenjualan').getContext('2d');
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-            let monthlyData = new Array(12).fill(0);
+            if (salesChart) salesChart.destroy();
 
-            (db.penjualanMesin || []).forEach(j => {
-                if(j.tgl) {
-                    const m = parseInt(j.tgl.split('-')[1]) - 1;
-                    if(!isNaN(m)) monthlyData[m] += Number(j.hargaJual);
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+            const salesData = new Array(12).fill(0);
+            const profitData = new Array(12).fill(0);
+
+            (db.penjualanMesin || []).forEach(p => {
+                if(p.tgl) {
+                    const m = new Date(p.tgl).getMonth();
+                    salesData[m] += Number(p.hargajual);
+                    profitData[m] += Number(p.laba);
                 }
             });
 
-            if(salesChart) salesChart.destroy();
+            (db.penjualanSparepart || []).forEach(p => {
+                if(p.tgl) {
+                    const m = new Date(p.tgl).getMonth();
+                    salesData[m] += Number(p.total);
+                    profitData[m] += Number(p.laba);
+                }
+            });
 
             salesChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: months,
-                    datasets: [{
-                        label: 'Penjualan',
-                        data: monthlyData,
-                        backgroundColor: '#10b981',
-                        borderRadius: 4
-                    }]
+                    datasets: [
+                        {
+                            label: 'Penjualan (Rp)',
+                            data: salesData,
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Laba (Rp)',
+                            data: profitData,
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            fill: true,
+                            tension: 0.3
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { labels: { color: '#94a3b8' } }
+                    },
                     scales: {
-                        x: { grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
-                        y: { grid: { color: '#334155' }, ticks: { color: '#94a3b8' } }
+                        x: { ticks: { color: '#64748b' }, grid: { color: '#1e293b' } },
+                        y: { ticks: { color: '#64748b' }, grid: { color: '#1e293b' } }
                     }
                 }
             });
         }
 
-        // --- MANAJEMEN MESIN ---
+        // --- DATA MESIN (Updated render, modal clear, & save logic for Catatan) ---
+        function renderTabelMesin() {
+            const tbody = document.getElementById('tabel-mesin-body');
+            tbody.innerHTML = '';
+
+            const keyword = (document.getElementById('search-mesin').value || '').toLowerCase();
+            const filterStatus = document.getElementById('filter-status-mesin').value;
+
+            const filtered = (db.mesin || []).filter(m => {
+                const matchKey = (m.nomor || '').toLowerCase().includes(keyword) || 
+                                 (m.merk || '').toLowerCase().includes(keyword) ||
+                                 (m.model || '').toLowerCase().includes(keyword) ||
+                                 (m.catatan || '').toLowerCase().includes(keyword);
+                const matchStatus = filterStatus ? m.status === filterStatus : true;
+                return matchKey && matchStatus;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" class="p-4 text-center text-slate-500">Data Mesin tidak ditemukan.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(m => {
+                const badgeColor = m.status === 'Ready' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' :
+                                  m.status === 'Terjual' ? 'bg-rose-500/20 text-rose-400 border-rose-500/30' : 'bg-amber-500/20 text-amber-400 border-amber-500/30';
+                
+                const fotoHtml = m.foto 
+                    ? `<img src="${m.foto}" onclick="openModalPreviewFoto('${m.foto}', '${m.merk} ${m.model}')" class="w-10 h-10 object-cover rounded-lg cursor-pointer mx-auto border border-slate-700">`
+                    : `<div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-slate-600 flex items-center justify-center text-xs mx-auto"><i class="fa-solid fa-image"></i></div>`;
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="p-3 text-center">${fotoHtml}</td>
+                        <td class="p-3 font-mono text-brand-400 font-semibold">${m.nomor}</td>
+                        <td class="p-3 font-medium text-white">${m.merk} <span class="text-slate-400 text-xs">(${m.model})</span></td>
+                        <td class="p-3 text-slate-300 text-xs">${m.jenis}</td>
+                        <td class="p-3 font-semibold text-slate-200">${formatRupiah(m.totalmodal)}</td>
+                        <td class="p-3 font-semibold text-brand-400">${formatRupiah(m.hargajual)}</td>
+                        <td class="p-3"><span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border ${badgeColor}">${m.status}</span></td>
+                        <td class="p-3 text-xs text-slate-300 max-w-[180px] truncate" title="${m.catatan || '-'}">${m.catatan || '-'}</td>
+                        <td class="p-3 text-center space-x-1">
+                            <button onclick="editMesin('${m.id}')" class="p-1.5 rounded-lg bg-blue-950/50 text-blue-400 border border-blue-800/40 hover:bg-blue-900/50 transition"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="hapusMesin('${m.id}')" class="p-1.5 rounded-lg bg-rose-950/50 text-rose-400 border border-rose-800/40 hover:bg-rose-900/50 transition"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
         function openModalMesin(id = null) {
+            document.getElementById('modal-mesin').classList.remove('hidden');
             document.getElementById('form-mesin-input').reset();
             document.getElementById('edit-mesin-id').value = '';
-            document.getElementById('modal-mesin-title').innerText = "Tambah Data Mesin";
+            document.getElementById('m-catatan').value = '';
 
-            if(id) {
-                const item = (db.mesin || []).find(m => m.id === id);
-                if(item) {
-                    document.getElementById('modal-mesin-title').innerText = "Edit Data Mesin";
-                    document.getElementById('edit-mesin-id').value = item.id;
-                    document.getElementById('m-nomor').value = item.nomor;
-                    document.getElementById('m-merk').value = item.merk;
-                    document.getElementById('m-model').value = item.model;
-                    document.getElementById('m-jenis').value = item.jenis;
-                    document.getElementById('m-kondisi').value = item.kondisi;
-                    document.getElementById('m-tgl').value = item.tgl;
-                    document.getElementById('m-supplier').value = item.supplier;
-                    document.getElementById('m-status').value = item.status;
-                    document.getElementById('m-hargabeli').value = item.hargabeli;
-                    document.getElementById('m-angkut').value = item.angkut;
-                    document.getElementById('m-servis').value = item.servis;
-                    document.getElementById('m-sparepart').value = item.sparepart;
-                    document.getElementById('m-totalmodal').value = item.totalmodal;
-                    document.getElementById('m-hargajual').value = item.hargajual;
-                    document.getElementById('m-sumber-modal').value = item.sumberModal || 'Sendiri';
+            if (id) {
+                const m = db.mesin.find(item => item.id === id);
+                if (m) {
+                    document.getElementById('modal-mesin-title').innerText = 'Edit Data Mesin';
+                    document.getElementById('edit-mesin-id').value = m.id;
+                    document.getElementById('m-nomor').value = m.nomor;
+                    document.getElementById('m-merk').value = m.merk;
+                    document.getElementById('m-model').value = m.model;
+                    document.getElementById('m-jenis').value = m.jenis;
+                    document.getElementById('m-sumber-modal').value = m.sumberModal || 'Sendiri';
+                    document.getElementById('m-kondisi').value = m.kondisi;
+                    document.getElementById('m-tgl').value = m.tgl;
+                    document.getElementById('m-supplier').value = m.supplier;
+                    document.getElementById('m-status').value = m.status;
+                    document.getElementById('m-hargabeli').value = m.hargabeli;
+                    document.getElementById('m-angkut').value = m.angkut || 0;
+                    document.getElementById('m-servis').value = m.servis || 0;
+                    document.getElementById('m-sparepart').value = m.sparepart || 0;
+                    document.getElementById('m-totalmodal').value = m.totalmodal;
+                    document.getElementById('m-hargajual').value = m.hargajual;
+                    document.getElementById('m-catatan').value = m.catatan || '';
                 }
             } else {
+                document.getElementById('modal-mesin-title').innerText = 'Tambah Data Mesin Baru';
                 document.getElementById('m-tgl').value = new Date().toISOString().split('T')[0];
             }
-            document.getElementById('modal-mesin').classList.remove('hidden');
         }
 
         function closeModalMesin() {
@@ -1528,150 +1575,136 @@
             const beli = Number(document.getElementById('m-hargabeli').value) || 0;
             const angkut = Number(document.getElementById('m-angkut').value) || 0;
             const servis = Number(document.getElementById('m-servis').value) || 0;
-            const sp = Number(document.getElementById('m-sparepart').value) || 0;
-            document.getElementById('m-totalmodal').value = beli + angkut + servis + sp;
+            const sparepart = Number(document.getElementById('m-sparepart').value) || 0;
+            document.getElementById('m-totalmodal').value = beli + angkut + servis + sparepart;
         }
 
         function simpanDataMesin(e) {
             e.preventDefault();
             const editId = document.getElementById('edit-mesin-id').value;
-            const fotoFile = document.getElementById('m-foto').files[0];
+            const fotoInput = document.getElementById('m-foto');
 
-            const prosesSimpan = (fotoBase64) => {
-                const totalModalVal = Number(document.getElementById('m-totalmodal').value) || 0;
-                const sumberModalVal = document.getElementById('m-sumber-modal').value;
-
-                const data = {
+            const processSave = (fotoBase64) => {
+                const dataObj = {
                     id: editId || 'M' + Date.now(),
                     nomor: document.getElementById('m-nomor').value,
                     merk: document.getElementById('m-merk').value,
                     model: document.getElementById('m-model').value,
                     jenis: document.getElementById('m-jenis').value,
+                    sumberModal: document.getElementById('m-sumber-modal').value,
                     kondisi: document.getElementById('m-kondisi').value,
                     tgl: document.getElementById('m-tgl').value,
                     supplier: document.getElementById('m-supplier').value,
                     status: document.getElementById('m-status').value,
-                    hargabeli: Number(document.getElementById('m-hargabeli').value) || 0,
+                    hargabeli: Number(document.getElementById('m-hargabeli').value),
                     angkut: Number(document.getElementById('m-angkut').value) || 0,
                     servis: Number(document.getElementById('m-servis').value) || 0,
                     sparepart: Number(document.getElementById('m-sparepart').value) || 0,
-                    totalmodal: totalModalVal,
-                    hargajual: Number(document.getElementById('m-hargajual').value) || 0,
-                    sumberModal: sumberModalVal,
-                    foto: fotoBase64 !== null ? fotoBase64 : ((db.mesin || []).find(m => m.id === editId)?.foto || "")
+                    totalmodal: Number(document.getElementById('m-totalmodal').value),
+                    hargajual: Number(document.getElementById('m-hargajual').value),
+                    catatan: document.getElementById('m-catatan').value || '',
+                    foto: fotoBase64
                 };
 
                 if (editId) {
-                    const idx = db.mesin.findIndex(m => m.id === editId);
-                    if (idx !== -1) db.mesin[idx] = data;
-                } else {
-                    db.mesin.push(data);
-                    if (sumberModalVal === 'Hutang Orang Tua') {
-                        db.hutang.push({
-                            id: 'HTG' + Date.now(),
-                            jenis: 'Orang Tua',
-                            tgl: data.tgl,
-                            nominal: totalModalVal,
-                            bunga: 0,
-                            total: totalModalVal,
-                            terbayar: 0,
-                            keterangan: `Pembelian Mesin ${data.merk} ${data.model} (${data.nomor})`
-                        });
+                    const index = db.mesin.findIndex(m => m.id === editId);
+                    if (index !== -1) {
+                        if (!fotoBase64) dataObj.foto = db.mesin[index].foto;
+                        db.mesin[index] = dataObj;
                     }
+                } else {
+                    db.mesin.push(dataObj);
                 }
 
                 saveDB();
                 closeModalMesin();
                 renderTabelMesin();
-                refreshDashboard();
-                showToast("Data Mesin Berhasil Disimpan!");
+                showToast("Data Mesin berhasil disimpan!");
             };
 
-            if (fotoFile) {
+            if (fotoInput.files && fotoInput.files[0]) {
                 const reader = new FileReader();
-                reader.onload = (event) => prosesSimpan(event.target.result);
-                reader.readAsDataURL(fotoFile);
+                reader.onload = function(evt) { processSave(evt.target.result); };
+                reader.readAsDataURL(fotoInput.files[0]);
             } else {
-                prosesSimpan(null);
+                processSave('');
             }
         }
 
-        function renderTabelMesin() {
-            const tbody = document.getElementById('tabel-mesin-body');
-            const search = document.getElementById('search-mesin').value.toLowerCase();
-            const filter = document.getElementById('filter-status-mesin').value;
-
-            tbody.innerHTML = '';
-            const filtered = (db.mesin || []).filter(m => {
-                const matchQuery = m.nomor.toLowerCase().includes(search) || m.merk.toLowerCase().includes(search) || m.model.toLowerCase().includes(search);
-                const matchStatus = filter ? m.status === filter : true;
-                return matchQuery && matchStatus;
-            });
-
-            if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" class="p-4 text-center text-slate-500">Tidak ada data mesin.</td></tr>`;
-                return;
-            }
-
-            filtered.forEach(m => {
-                let badgeClass = "bg-slate-800 text-slate-300";
-                if(m.status === 'Ready') badgeClass = "bg-emerald-900/40 text-emerald-400 border border-emerald-800";
-                else if(m.status === 'Terjual') badgeClass = "bg-rose-900/40 text-rose-400 border border-rose-800";
-                else if(m.status === 'Booking') badgeClass = "bg-amber-900/40 text-amber-400 border border-amber-800";
-
-                let imgThumb = m.foto 
-                    ? `<img src="${m.foto}" onclick="openModalPreviewFoto('${m.foto}', '${m.merk} ${m.model}')" class="w-10 h-10 object-cover rounded-lg mx-auto border border-slate-700 cursor-pointer">`
-                    : `<div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 mx-auto text-xs"><i class="fa-solid fa-engine"></i></div>`;
-
-                tbody.innerHTML += `
-                    <tr class="hover:bg-slate-900/50">
-                        <td class="p-3 text-center">${imgThumb}</td>
-                        <td class="p-3 font-semibold text-white">${m.nomor}</td>
-                        <td class="p-3">${m.merk} ${m.model}</td>
-                        <td class="p-3 text-slate-400">${m.jenis}</td>
-                        <td class="p-3 font-semibold text-slate-300">${formatRupiah(m.totalmodal)}</td>
-                        <td class="p-3 font-semibold text-brand-400">${formatRupiah(m.hargajual)}</td>
-                        <td class="p-3"><span class="px-2.5 py-1 rounded-full text-xs font-semibold ${badgeClass}">${m.status}</span></td>
-                        <td class="p-3 text-center">
-                            <button onclick="openModalMesin('${m.id}')" class="text-blue-400 hover:text-blue-300 p-1 mr-2"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button onclick="hapusMesin('${m.id}')" class="text-rose-400 hover:text-rose-300 p-1"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-                `;
-            });
-        }
+        function editMesin(id) { openModalMesin(id); }
 
         function hapusMesin(id) {
             if (confirm("Apakah Anda yakin ingin menghapus data mesin ini?")) {
                 db.mesin = db.mesin.filter(m => m.id !== id);
                 saveDB();
                 renderTabelMesin();
-                refreshDashboard();
-                showToast("Data Mesin Berhasil Dihapus!");
+                showToast("Data Mesin telah dihapus.");
             }
         }
 
-        // --- MANAJEMEN MASTER SPAREPART ---
+        // --- MASTER SPAREPART ---
+        function renderTabelSparepart() {
+            const tbody = document.getElementById('tabel-sparepart-body');
+            tbody.innerHTML = '';
+
+            const keyword = (document.getElementById('search-sparepart').value || '').toLowerCase();
+            const filterKat = document.getElementById('filter-kategori-sparepart').value;
+
+            const filtered = (db.sparepart || []).filter(sp => {
+                const matchKey = (sp.kode || '').toLowerCase().includes(keyword) || (sp.nama || '').toLowerCase().includes(keyword);
+                const matchKat = filterKat ? sp.kategori === filterKat : true;
+                return matchKey && matchKat;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-4 text-center text-slate-500">Data Sparepart tidak ditemukan.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(sp => {
+                const fotoHtml = sp.foto 
+                    ? `<img src="${sp.foto}" onclick="openModalPreviewFoto('${sp.foto}', '${sp.nama}')" class="w-10 h-10 object-cover rounded-lg cursor-pointer mx-auto border border-slate-700">`
+                    : `<div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-slate-600 flex items-center justify-center text-xs mx-auto"><i class="fa-solid fa-image"></i></div>`;
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="p-3 text-center">${fotoHtml}</td>
+                        <td class="p-3 font-mono text-brand-400 font-semibold">${sp.kode}</td>
+                        <td class="p-3 font-medium text-white">${sp.nama}</td>
+                        <td class="p-3 text-slate-300 text-xs">${sp.kategori}</td>
+                        <td class="p-3 font-bold ${Number(sp.stok) <= Number(sp.minstock) ? 'text-amber-400' : 'text-slate-100'}">${sp.stok}</td>
+                        <td class="p-3 text-slate-300">${formatRupiah(sp.hargabeli)}</td>
+                        <td class="p-3 text-brand-400 font-semibold">${formatRupiah(sp.hargajual)}</td>
+                        <td class="p-3 text-center space-x-1">
+                            <button onclick="editSparepart('${sp.kode}')" class="p-1.5 rounded-lg bg-blue-950/50 text-blue-400 border border-blue-800/40 hover:bg-blue-900/50 transition"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="hapusSparepart('${sp.kode}')" class="p-1.5 rounded-lg bg-rose-950/50 text-rose-400 border border-rose-800/40 hover:bg-rose-900/50 transition"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
         function openModalSparepart(kode = null) {
+            document.getElementById('modal-sparepart').classList.remove('hidden');
             document.getElementById('form-sparepart-input').reset();
             document.getElementById('edit-sp-kode').value = '';
-            document.getElementById('modal-sp-title').innerText = "Tambah Sparepart";
 
             if (kode) {
-                const sp = (db.sparepart || []).find(s => s.kode === kode);
+                const sp = db.sparepart.find(item => item.kode === kode);
                 if (sp) {
-                    document.getElementById('modal-sp-title').innerText = "Edit Sparepart";
+                    document.getElementById('modal-sp-title').innerText = 'Edit Sparepart';
                     document.getElementById('edit-sp-kode').value = sp.kode;
                     document.getElementById('sp-kode').value = sp.kode;
-                    document.getElementById('sp-nama').value = sp.nama;
                     document.getElementById('sp-kategori').value = sp.kategori;
+                    document.getElementById('sp-nama').value = sp.nama;
                     document.getElementById('sp-hargabeli').value = sp.hargabeli;
                     document.getElementById('sp-hargajual').value = sp.hargajual;
                     document.getElementById('sp-minstock').value = sp.minstock;
                     document.getElementById('sp-lokasi').value = sp.lokasi || '';
                 }
+            } else {
+                document.getElementById('modal-sp-title').innerText = 'Tambah Sparepart Baru';
             }
-            document.getElementById('modal-sparepart').classList.remove('hidden');
         }
 
         function closeModalSparepart() {
@@ -1681,92 +1714,54 @@
         function simpanDataSparepart(e) {
             e.preventDefault();
             const editKode = document.getElementById('edit-sp-kode').value;
-            const kodeBaru = document.getElementById('sp-kode').value;
-            const fotoFile = document.getElementById('sp-foto').files[0];
+            const fotoInput = document.getElementById('sp-foto');
 
-            const prosesSimpan = (fotoBase64) => {
-                const data = {
-                    kode: kodeBaru,
-                    nama: document.getElementById('sp-nama').value,
+            const processSave = (fotoBase64) => {
+                const dataObj = {
+                    kode: document.getElementById('sp-kode').value,
                     kategori: document.getElementById('sp-kategori').value,
-                    hargabeli: Number(document.getElementById('sp-hargabeli').value) || 0,
-                    hargajual: Number(document.getElementById('sp-hargajual').value) || 0,
-                    minstock: Number(document.getElementById('sp-minstock').value) || 0,
+                    nama: document.getElementById('sp-nama').value,
+                    hargabeli: Number(document.getElementById('sp-hargabeli').value),
+                    hargajual: Number(document.getElementById('sp-hargajual').value),
+                    minstock: Number(document.getElementById('sp-minstock').value),
                     lokasi: document.getElementById('sp-lokasi').value,
-                    stok: editKode ? ((db.sparepart || []).find(s => s.kode === editKode)?.stok || 0) : 0,
-                    foto: fotoBase64 !== null ? fotoBase64 : ((db.sparepart || []).find(s => s.kode === editKode)?.foto || "")
+                    stok: editKode ? (db.sparepart.find(s => s.kode === editKode)?.stok || 0) : 0,
+                    foto: fotoBase64
                 };
 
                 if (editKode) {
-                    const idx = db.sparepart.findIndex(s => s.kode === editKode);
-                    if (idx !== -1) db.sparepart[idx] = data;
+                    const index = db.sparepart.findIndex(s => s.kode === editKode);
+                    if (index !== -1) {
+                        if (!fotoBase64) dataObj.foto = db.sparepart[index].foto;
+                        db.sparepart[index] = dataObj;
+                    }
                 } else {
-                    db.sparepart.push(data);
+                    db.sparepart.push(dataObj);
                 }
 
                 saveDB();
                 closeModalSparepart();
                 renderTabelSparepart();
-                refreshDashboard();
-                showToast("Data Sparepart Berhasil Disimpan!");
+                showToast("Sparepart berhasil disimpan!");
             };
 
-            if (fotoFile) {
+            if (fotoInput.files && fotoInput.files[0]) {
                 const reader = new FileReader();
-                reader.onload = (event) => prosesSimpan(event.target.result);
-                reader.readAsDataURL(fotoFile);
+                reader.onload = function(evt) { processSave(evt.target.result); };
+                reader.readAsDataURL(fotoInput.files[0]);
             } else {
-                prosesSimpan(null);
+                processSave('');
             }
         }
 
-        function renderTabelSparepart() {
-            const tbody = document.getElementById('tabel-sparepart-body');
-            const search = document.getElementById('search-sparepart').value.toLowerCase();
-            const filter = document.getElementById('filter-kategori-sparepart').value;
-
-            tbody.innerHTML = '';
-            const filtered = (db.sparepart || []).filter(s => {
-                const matchQuery = s.kode.toLowerCase().includes(search) || s.nama.toLowerCase().includes(search);
-                const matchKat = filter ? s.kategori === filter : true;
-                return matchQuery && matchKat;
-            });
-
-            if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" class="p-4 text-center text-slate-500">Tidak ada data sparepart.</td></tr>`;
-                return;
-            }
-
-            filtered.forEach(s => {
-                let imgThumb = s.foto 
-                    ? `<img src="${s.foto}" onclick="openModalPreviewFoto('${s.foto}', '${s.nama}')" class="w-10 h-10 object-cover rounded-lg mx-auto border border-slate-700 cursor-pointer">`
-                    : `<div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 mx-auto text-xs"><i class="fa-solid fa-wrench"></i></div>`;
-
-                tbody.innerHTML += `
-                    <tr class="hover:bg-slate-900/50">
-                        <td class="p-3 text-center">${imgThumb}</td>
-                        <td class="p-3 font-semibold text-white">${s.kode}</td>
-                        <td class="p-3 font-semibold">${s.nama}</td>
-                        <td class="p-3 text-slate-400">${s.kategori}</td>
-                        <td class="p-3 font-bold ${s.stok <= s.minstock ? 'text-rose-400' : 'text-emerald-400'}">${s.stok} unit</td>
-                        <td class="p-3 text-slate-300">${formatRupiah(s.hargabeli)}</td>
-                        <td class="p-3 font-semibold text-brand-400">${formatRupiah(s.hargajual)}</td>
-                        <td class="p-3 text-center">
-                            <button onclick="openModalSparepart('${s.kode}')" class="text-blue-400 hover:text-blue-300 p-1 mr-2"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button onclick="hapusSparepart('${s.kode}')" class="text-rose-400 hover:text-rose-300 p-1"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
-                `;
-            });
-        }
+        function editSparepart(kode) { openModalSparepart(kode); }
 
         function hapusSparepart(kode) {
-            if (confirm("Apakah Anda yakin ingin menghapus sparepart ini?")) {
+            if (confirm("Hapus master sparepart ini?")) {
                 db.sparepart = db.sparepart.filter(s => s.kode !== kode);
                 saveDB();
                 renderTabelSparepart();
-                refreshDashboard();
-                showToast("Sparepart Berhasil Dihapus!");
+                showToast("Sparepart berhasil dihapus.");
             }
         }
 
@@ -1775,264 +1770,277 @@
             document.getElementById('beli-tgl').value = new Date().toISOString().split('T')[0];
             document.getElementById('list-item-beli').innerHTML = '';
             tambahItemBeliRow();
-            hitungTotalBeli();
         }
 
         function tambahItemBeliRow() {
             const tbody = document.getElementById('list-item-beli');
-            const rowId = Date.now() + Math.random();
-            const spOptions = (db.sparepart || []).map(s => `<option value="${s.kode}">${s.nama} (${s.kode})</option>`).join('');
+            const rowId = Date.now();
+            
+            let spOptions = `<option value="">-- Pilih --</option>`;
+            (db.sparepart || []).forEach(sp => {
+                spOptions += `<option value="${sp.kode}">${sp.nama} (${sp.kode})</option>`;
+            });
 
             const row = document.createElement('tr');
             row.id = `row-beli-${rowId}`;
             row.innerHTML = `
-                <td class="p-2">
-                    <select class="sp-select-item w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500" onchange="updateBeliItemHarga(this)" required>
-                        <option value="">-- Pilih Sparepart --</option>
-                        ${spOptions}
-                    </select>
-                </td>
-                <td class="p-2"><input type="number" value="1" min="1" class="sp-qty-item w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs text-center" oninput="hitungTotalBeli()"></td>
-                <td class="p-2"><input type="number" value="0" class="sp-harga-item w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs" oninput="hitungTotalBeli()"></td>
-                <td class="p-2"><input type="text" readonly value="Rp 0" class="sp-subtotal-item w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs font-semibold text-brand-400"></td>
-                <td class="p-2 text-center"><button type="button" onclick="this.closest('tr').remove(); hitungTotalBeli();" class="text-rose-400 hover:text-rose-300"><i class="fa-solid fa-trash"></i></button></td>
+                <td class="p-2"><select onchange="updateRowHargaBeli('${rowId}', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500">${spOptions}</select></td>
+                <td class="p-2"><input type="number" value="1" min="1" oninput="hitungRowBeli('${rowId}')" class="row-qty w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500"></td>
+                <td class="p-2"><input type="number" value="0" oninput="hitungRowBeli('${rowId}')" class="row-harga w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500"></td>
+                <td class="p-2"><input type="text" readonly value="Rp 0" class="row-subtotal w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs text-brand-400 font-bold"></td>
+                <td class="p-2 text-center"><button type="button" onclick="hapusRowBeli('${rowId}')" class="text-rose-400 hover:text-rose-300"><i class="fa-solid fa-trash"></i></button></td>
             `;
             tbody.appendChild(row);
         }
 
-        function updateBeliItemHarga(selectEl) {
-            const kode = selectEl.value;
-            const row = selectEl.closest('tr');
-            const sp = (db.sparepart || []).find(s => s.kode === kode);
+        function updateRowHargaBeli(rowId, kode) {
+            const row = document.getElementById(`row-beli-${rowId}`);
+            const sp = db.sparepart.find(s => s.kode === kode);
             if (sp) {
-                row.querySelector('.sp-harga-item').value = sp.hargabeli;
+                row.querySelector('.row-harga').value = sp.hargabeli;
+                hitungRowBeli(rowId);
             }
+        }
+
+        function hitungRowBeli(rowId) {
+            const row = document.getElementById(`row-beli-${rowId}`);
+            const qty = Number(row.querySelector('.row-qty').value) || 0;
+            const harga = Number(row.querySelector('.row-harga').value) || 0;
+            row.querySelector('.row-subtotal').value = formatRupiah(qty * harga);
+            hitungTotalBeli();
+        }
+
+        function hapusRowBeli(rowId) {
+            document.getElementById(`row-beli-${rowId}`)?.remove();
             hitungTotalBeli();
         }
 
         function hitungTotalBeli() {
             let totalItem = 0;
             document.querySelectorAll('#list-item-beli tr').forEach(row => {
-                const qty = Number(row.querySelector('.sp-qty-item')?.value) || 0;
-                const harga = Number(row.querySelector('.sp-harga-item')?.value) || 0;
-                const subtotal = qty * harga;
-                if(row.querySelector('.sp-subtotal-item')) row.querySelector('.sp-subtotal-item').value = formatRupiah(subtotal);
-                totalItem += subtotal;
+                const qty = Number(row.querySelector('.row-qty')?.value) || 0;
+                const harga = Number(row.querySelector('.row-harga')?.value) || 0;
+                totalItem += (qty * harga);
             });
 
             const ongkir = Number(document.getElementById('beli-ongkir').value) || 0;
             const diskon = Number(document.getElementById('beli-diskon').value) || 0;
-            const grandTotal = totalItem + ongkir - diskon;
+            const grandTotal = (totalItem + ongkir) - diskon;
+
             document.getElementById('beli-grand-total').value = formatRupiah(grandTotal);
         }
 
         function simpanPembelianSparepart(e) {
             e.preventDefault();
             const items = [];
-            let valid = true;
+            let isValid = true;
 
             document.querySelectorAll('#list-item-beli tr').forEach(row => {
-                const kode = row.querySelector('.sp-select-item').value;
-                const qty = Number(row.querySelector('.sp-qty-item').value) || 0;
-                const harga = Number(row.querySelector('.sp-harga-item').value) || 0;
+                const kode = row.querySelector('select').value;
+                const qty = Number(row.querySelector('.row-qty').value) || 0;
+                const harga = Number(row.querySelector('.row-harga').value) || 0;
 
-                if(!kode || qty <= 0) valid = false;
-
+                if (!kode) isValid = false;
                 items.push({ kode, qty, harga, subtotal: qty * harga });
             });
 
-            if(!valid || items.length === 0) {
-                showToast("Harap pilih sparepart dan atur kuantitas dengan benar!", "error");
+            if (!isValid || items.length === 0) {
+                showToast("Pilih sparepart dengan benar!", "error");
                 return;
             }
 
             const metode = document.getElementById('beli-metode').value;
             const ongkir = Number(document.getElementById('beli-ongkir').value) || 0;
             const diskon = Number(document.getElementById('beli-diskon').value) || 0;
-            const grandTotalNum = items.reduce((sum, i) => sum + i.subtotal, 0) + ongkir - diskon;
+            const grandTotal = (items.reduce((s, i) => s + i.subtotal, 0) + ongkir) - diskon;
 
-            const pembelianRecord = {
-                id: 'PB' + Date.now(),
+            const recordBeli = {
+                id: 'B' + Date.now(),
                 tgl: document.getElementById('beli-tgl').value,
                 supplier: document.getElementById('beli-supplier').value,
                 nota: document.getElementById('beli-nota').value,
-                metode: metode,
-                ongkir: ongkir,
-                diskon: diskon,
-                grandTotal: grandTotalNum,
-                items: items
+                metode,
+                items,
+                ongkir,
+                diskon,
+                grandTotal
             };
 
-            db.pembelianSparepart.push(pembelianRecord);
-
-            // Update stok & harga beli sparepart di master
             items.forEach(item => {
-                const spIdx = db.sparepart.findIndex(s => s.kode === item.kode);
-                if (spIdx !== -1) {
-                    db.sparepart[spIdx].stok = Number(db.sparepart[spIdx].stok) + item.qty;
-                    db.sparepart[spIdx].hargabeli = item.harga; // Update harga beli terbaru
+                const sp = db.sparepart.find(s => s.kode === item.kode);
+                if (sp) {
+                    sp.stok = Number(sp.stok) + item.qty;
+                    sp.hargabeli = item.harga;
                 }
             });
 
-            // Catat hutang jika menggunakan SPayLater
             if (metode === 'SpayLater') {
                 db.hutang.push({
-                    id: 'HTG' + Date.now(),
+                    id: 'H' + Date.now(),
                     jenis: 'SPayLater',
-                    tgl: pembelianRecord.tgl,
-                    nominal: grandTotalNum,
+                    tgl: recordBeli.tgl,
+                    nominalUtama: grandTotal,
                     bunga: 0,
-                    total: grandTotalNum,
-                    terbayar: 0,
-                    keterangan: `Pembelian Sparepart SPayLater Nota: ${pembelianRecord.nota}`
+                    totalHutang: grandTotal,
+                    sudahBayar: 0,
+                    sisa: grandTotal,
+                    ket: `Pembelian Sparepart Nota: ${recordBeli.nota} (${recordBeli.supplier})`,
+                    status: 'Belum Lunas'
                 });
             }
 
+            db.pembelianSparepart.push(recordBeli);
             saveDB();
-            initBeliSparepartForm();
-            refreshDashboard();
-            showToast("Pembelian sparepart berhasil disimpan & stok diperbarui!");
+            showToast("Pembelian berhasil disimpan & Stok terupdate!");
+            switchTab('sparepart');
         }
 
         // --- PENJUALAN MESIN ---
         function initJualMesinForm() {
             document.getElementById('jm-tgl').value = new Date().toISOString().split('T')[0];
-            const selectEl = document.getElementById('jm-pilih-mesin');
-            selectEl.innerHTML = '<option value="">-- Pilih Mesin --</option>';
+            const selectMesin = document.getElementById('jm-pilih-mesin');
+            selectMesin.innerHTML = `<option value="">-- Pilih Mesin --</option>`;
 
             (db.mesin || []).filter(m => m.status === 'Ready').forEach(m => {
-                selectEl.innerHTML += `<option value="${m.id}">${m.nomor} - ${m.merk} ${m.model} (Modal: ${formatRupiah(m.totalmodal)})</option>`;
+                selectMesin.innerHTML += `<option value="${m.id}">${m.nomor} - ${m.merk} ${m.model} (${formatRupiah(m.hargajual)})</option>`;
             });
-
-            document.getElementById('form-jual-mesin').reset();
-            document.getElementById('jm-tgl').value = new Date().toISOString().split('T')[0];
-            renderRiwayatJualMesin();
         }
 
         function pilihMesinJual(id) {
-            const m = (db.mesin || []).find(item => item.id === id);
+            const m = db.mesin.find(item => item.id === id);
             if (m) {
                 document.getElementById('jm-modal').value = formatRupiah(m.totalmodal);
                 document.getElementById('jm-harga-jual').value = m.hargajual;
                 hitungLabaMesin();
-            } else {
-                document.getElementById('jm-modal').value = "Rp 0";
-                document.getElementById('jm-harga-jual').value = 0;
-                document.getElementById('jm-laba').value = "Rp 0";
             }
         }
 
         function hitungLabaMesin() {
-            const mesinId = document.getElementById('jm-pilih-mesin').value;
-            const m = (db.mesin || []).find(item => item.id === mesinId);
-            const modal = m ? Number(m.totalmodal) : 0;
-            const hargaJual = Number(document.getElementById('jm-harga-jual').value) || 0;
+            const mId = document.getElementById('jm-pilih-mesin').value;
+            const m = db.mesin.find(item => item.id === mId);
+            if (!m) return;
+
+            const modal = m.totalmodal;
+            const jual = Number(document.getElementById('jm-harga-jual').value) || 0;
             const diskon = Number(document.getElementById('jm-diskon').value) || 0;
-            const estimasiLaba = (hargaJual - diskon) - modal;
-            document.getElementById('jm-laba').value = formatRupiah(estimasiLaba);
+            const laba = (jual - diskon) - modal;
+
+            document.getElementById('jm-laba').value = formatRupiah(laba);
         }
 
         function simpanPenjualanMesin(e) {
             e.preventDefault();
-            const mesinId = document.getElementById('jm-pilih-mesin').value;
-            const mIdx = (db.mesin || []).findIndex(m => m.id === mesinId);
+            const mId = document.getElementById('jm-pilih-mesin').value;
+            const m = db.mesin.find(item => item.id === mId);
+            if (!m) return;
 
-            if (mIdx === -1) {
-                showToast("Silakan pilih mesin yang valid!", "error");
-                return;
-            }
-
-            const m = db.mesin[mIdx];
-            const hargaJual = Number(document.getElementById('jm-harga-jual').value) || 0;
+            const jual = Number(document.getElementById('jm-harga-jual').value) || 0;
             const diskon = Number(document.getElementById('jm-diskon').value) || 0;
-            const nettoJual = hargaJual - diskon;
-            const laba = nettoJual - Number(m.totalmodal);
+            const totalBersih = jual - diskon;
+            const laba = totalBersih - m.totalmodal;
 
-            const record = {
+            const recordJual = {
                 id: 'JM' + Date.now(),
+                tgl: document.getElementById('jm-tgl').value,
                 mesinId: m.id,
                 noMesin: m.nomor,
-                deskripsi: `${m.merk} ${m.model}`,
-                tgl: document.getElementById('jm-tgl').value,
-                modal: Number(m.totalmodal),
-                hargaJual: nettoJual,
-                diskon: diskon,
-                laba: laba,
+                merkModel: `${m.merk} ${m.model}`,
                 pembeli: document.getElementById('jm-pembeli').value,
                 alamat: document.getElementById('jm-alamat').value,
                 hp: document.getElementById('jm-hp').value,
                 metode: document.getElementById('jm-metode').value,
-                statusBayar: document.getElementById('jm-status-bayar').value
+                statusBayar: document.getElementById('jm-status-bayar').value,
+                modal: m.totalmodal,
+                hargajual: jual,
+                diskon: diskon,
+                total: totalBersih,
+                laba: laba
             };
 
-            db.penjualanMesin.push(record);
-            db.mesin[mIdx].status = "Terjual";
-
+            m.status = 'Terjual';
+            db.penjualanMesin.push(recordJual);
             saveDB();
+
+            showToast("Penjualan Mesin berhasil disimpan!");
+            cetakNotaMesin(recordJual);
+            renderRiwayatJualMesin();
             initJualMesinForm();
-            refreshDashboard();
-            showToast("Penjualan Mesin Berhasil Diproses!");
-            cetakNotaPenjualan('mesin', record);
         }
 
         function renderRiwayatJualMesin() {
             const tbody = document.getElementById('riwayat-jual-mesin-body');
             tbody.innerHTML = '';
 
-            if ((db.penjualanMesin || []).length === 0) {
+            const items = (db.penjualanMesin || []).slice().reverse();
+            if (items.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="5" class="p-3 text-center text-slate-500">Belum ada riwayat penjualan.</td></tr>`;
                 return;
             }
 
-            [...(db.penjualanMesin || [])].reverse().forEach(j => {
+            items.forEach(p => {
                 tbody.innerHTML += `
-                    <tr class="hover:bg-slate-900/40">
-                        <td class="p-2 text-xs text-slate-400">${j.tgl}</td>
-                        <td class="p-2 font-semibold text-white text-xs">${j.noMesin}</td>
-                        <td class="p-2 text-xs">${j.pembeli}</td>
-                        <td class="p-2 font-semibold text-brand-400 text-xs">${formatRupiah(j.hargaJual)}</td>
+                    <tr>
+                        <td class="p-2 text-xs text-slate-400">${p.tgl}</td>
+                        <td class="p-2 font-mono text-brand-400 text-xs font-semibold">${p.noMesin}</td>
+                        <td class="p-2 font-medium text-white text-xs">${p.pembeli}</td>
+                        <td class="p-2 font-semibold text-xs text-brand-400">${formatRupiah(p.total)}</td>
                         <td class="p-2 text-center">
-                            <button onclick='cetakNotaPenjualan("mesin", ${JSON.stringify(j)})' class="text-xs text-blue-400 hover:text-blue-300 mr-2" title="Cetak Nota"><i class="fa-solid fa-print"></i></button>
-                            <button onclick="hapusPenjualanMesin('${j.id}')" class="text-xs text-rose-400 hover:text-rose-300" title="Hapus Penjualan"><i class="fa-solid fa-trash"></i></button>
+                            <button onclick='cetakNotaMesinById("${p.id}")' class="p-1 px-2 rounded bg-slate-800 text-slate-300 hover:text-white text-xs"><i class="fa-solid fa-print"></i> Nota</button>
                         </td>
                     </tr>
                 `;
             });
         }
 
-        // --- FITUR HAPUS PENJUALAN MESIN (SINKRON DENGAN DASHBOARD, LAPORAN, DLL) ---
-        function hapusPenjualanMesin(id) {
-            if (!confirm("Apakah Anda yakin ingin menghapus data penjualan mesin ini? Status mesin akan dikembalikan menjadi Ready dan seluruh hitungan keuangan akan disesuaikan kembali.")) return;
+        function cetakNotaMesinById(id) {
+            const p = db.penjualanMesin.find(item => item.id === id);
+            if (p) cetakNotaMesin(p);
+        }
 
-            const index = (db.penjualanMesin || []).findIndex(j => j.id === id);
-            if (index !== -1) {
-                const item = db.penjualanMesin[index];
+        function cetakNotaMesin(p) {
+            const notaContainer = document.getElementById('nota-content');
+            notaContainer.innerHTML = `
+                <div class="text-center border-b pb-2">
+                    <h3 class="font-bold text-base uppercase">${db.pengaturan.namaToko}</h3>
+                    <p class="text-[11px]">${db.pengaturan.alamat}</p>
+                    <p class="text-[11px]">HP: ${db.pengaturan.hp}</p>
+                </div>
+                <div class="text-xs space-y-1">
+                    <p><strong>No Nota:</strong> ${p.id}</p>
+                    <p><strong>Tanggal:</strong> ${p.tgl}</p>
+                    <p><strong>Pembeli:</strong> ${p.pembeli}</p>
+                    <p><strong>No HP:</strong> ${p.hp || '-'}</p>
+                    <p><strong>Alamat:</strong> ${p.alamat || '-'}</p>
+                </div>
+                <hr class="border-dashed my-2">
+                <table class="w-full text-xs text-left">
+                    <thead><tr class="border-b"><th>Deskripsi</th><th class="text-right">Total</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-1">${p.merkModel}<br><span class="text-[10px] text-gray-500">S/N: ${p.noMesin}</span></td>
+                            <td class="text-right py-1">${formatRupiah(p.hargajual)}</td>
+                        </tr>
+                        ${p.diskon > 0 ? `<tr><td>Diskon</td><td class="text-right">-${formatRupiah(p.diskon)}</td></tr>` : ''}
+                    </tbody>
+                </table>
+                <hr class="border-dashed my-2">
+                <div class="flex justify-between font-bold text-sm">
+                    <span>TOTAL BAYAR</span>
+                    <span>${formatRupiah(p.total)}</span>
+                </div>
+                <div class="text-[11px] mt-1">
+                    <p>Metode Bayar: ${p.metode} (${p.statusBayar})</p>
+                </div>
+                <div class="text-center text-[10px] mt-4 border-t pt-2 text-gray-500">
+                    <p>Terima Kasih Atas Pembelian Anda!</p>
+                    <p>Barang yang sudah dibeli tidak dapat dikembalikan.</p>
+                </div>
+            `;
+            document.getElementById('modal-nota').classList.remove('hidden');
+        }
 
-                // Kembalikan status mesin terkait ke 'Ready'
-                if (item.mesinId) {
-                    const mIdx = (db.mesin || []).findIndex(m => m.id === item.mesinId);
-                    if (mIdx !== -1) {
-                        db.mesin[mIdx].status = "Ready";
-                    }
-                } else if (item.noMesin) {
-                    const mIdx = (db.mesin || []).findIndex(m => m.nomor === item.noMesin);
-                    if (mIdx !== -1) {
-                        db.mesin[mIdx].status = "Ready";
-                    }
-                }
-
-                // Hapus penjualan dari database
-                db.penjualanMesin.splice(index, 1);
-                saveDB();
-
-                // Refresh seluruh data yang terikat
-                renderRiwayatJualMesin();
-                refreshDashboard();
-                if (document.getElementById('tab-mesin') && !document.getElementById('tab-mesin').classList.contains('hidden')) {
-                    renderTabelMesin();
-                }
-                showToast("Data penjualan mesin berhasil dihapus dan status mesin dikembalikan menjadi Ready!");
-            }
+        function closeModalNota() {
+            document.getElementById('modal-nota').classList.add('hidden');
         }
 
         // --- PENJUALAN SPAREPART ---
@@ -2040,49 +2048,57 @@
             document.getElementById('js-tgl').value = new Date().toISOString().split('T')[0];
             document.getElementById('list-item-jual-sparepart').innerHTML = '';
             tambahItemJualSparepartRow();
-            hitungTotalJualSparepart();
         }
 
         function tambahItemJualSparepartRow() {
             const tbody = document.getElementById('list-item-jual-sparepart');
-            const rowId = Date.now() + Math.random();
-            const spOptions = (db.sparepart || []).map(s => `<option value="${s.kode}">${s.nama} (${s.kode}) - Stok: ${s.stok}</option>`).join('');
+            const rowId = Date.now();
+
+            let spOptions = `<option value="">-- Pilih --</option>`;
+            (db.sparepart || []).filter(s => Number(s.stok) > 0).forEach(sp => {
+                spOptions += `<option value="${sp.kode}">${sp.nama} (Stok: ${sp.stok})</option>`;
+            });
 
             const row = document.createElement('tr');
             row.id = `row-js-${rowId}`;
             row.innerHTML = `
-                <td class="p-2">
-                    <select class="sp-js-select w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500" onchange="updateJualSparepartHarga(this)" required>
-                        <option value="">-- Pilih Sparepart --</option>
-                        ${spOptions}
-                    </select>
-                </td>
-                <td class="p-2"><input type="number" value="1" min="1" class="sp-js-qty w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs text-center" oninput="hitungTotalJualSparepart()"></td>
-                <td class="p-2"><input type="number" value="0" class="sp-js-harga w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs" oninput="hitungTotalJualSparepart()"></td>
-                <td class="p-2"><input type="text" readonly value="Rp 0" class="sp-js-subtotal w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs font-semibold text-brand-400"></td>
-                <td class="p-2 text-center"><button type="button" onclick="this.closest('tr').remove(); hitungTotalJualSparepart();" class="text-rose-400 hover:text-rose-300"><i class="fa-solid fa-trash"></i></button></td>
+                <td class="p-2"><select onchange="updateRowHargaJualSp('${rowId}', this.value)" class="w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500">${spOptions}</select></td>
+                <td class="p-2"><input type="number" value="1" min="1" oninput="hitungRowJualSp('${rowId}')" class="row-qty w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500"></td>
+                <td class="p-2"><input type="number" value="0" oninput="hitungRowJualSp('${rowId}')" class="row-harga w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs focus:outline-none focus:border-brand-500"></td>
+                <td class="p-2"><input type="text" readonly value="Rp 0" class="row-subtotal w-full bg-slate-900 border border-slate-800 rounded p-2 text-xs text-brand-400 font-bold"></td>
+                <td class="p-2 text-center"><button type="button" onclick="hapusRowJualSp('${rowId}')" class="text-rose-400 hover:text-rose-300"><i class="fa-solid fa-trash"></i></button></td>
             `;
             tbody.appendChild(row);
         }
 
-        function updateJualSparepartHarga(selectEl) {
-            const kode = selectEl.value;
-            const row = selectEl.closest('tr');
-            const sp = (db.sparepart || []).find(s => s.kode === kode);
+        function updateRowHargaJualSp(rowId, kode) {
+            const row = document.getElementById(`row-js-${rowId}`);
+            const sp = db.sparepart.find(s => s.kode === kode);
             if (sp) {
-                row.querySelector('.sp-js-harga').value = sp.hargajual;
+                row.querySelector('.row-harga').value = sp.hargajual;
+                hitungRowJualSp(rowId);
             }
-            hitungTotalJualSparepart();
         }
 
-        function hitungTotalJualSparepart() {
+        function hitungRowJualSp(rowId) {
+            const row = document.getElementById(`row-js-${rowId}`);
+            const qty = Number(row.querySelector('.row-qty').value) || 0;
+            const harga = Number(row.querySelector('.row-harga').value) || 0;
+            row.querySelector('.row-subtotal').value = formatRupiah(qty * harga);
+            hitungGrandTotalJualSp();
+        }
+
+        function hapusRowJualSp(rowId) {
+            document.getElementById(`row-js-${rowId}`)?.remove();
+            hitungGrandTotalJualSp();
+        }
+
+        function hitungGrandTotalJualSp() {
             let total = 0;
             document.querySelectorAll('#list-item-jual-sparepart tr').forEach(row => {
-                const qty = Number(row.querySelector('.sp-js-qty')?.value) || 0;
-                const harga = Number(row.querySelector('.sp-js-harga')?.value) || 0;
-                const subtotal = qty * harga;
-                if(row.querySelector('.sp-js-subtotal')) row.querySelector('.sp-js-subtotal').value = formatRupiah(subtotal);
-                total += subtotal;
+                const qty = Number(row.querySelector('.row-qty')?.value) || 0;
+                const harga = Number(row.querySelector('.row-harga')?.value) || 0;
+                total += (qty * harga);
             });
             document.getElementById('js-grand-total').innerText = formatRupiah(total);
         }
@@ -2090,88 +2106,145 @@
         function simpanPenjualanSparepart(e) {
             e.preventDefault();
             const items = [];
-            let valid = true;
+            let isValid = true;
+            let totalLaba = 0;
 
             document.querySelectorAll('#list-item-jual-sparepart tr').forEach(row => {
-                const kode = row.querySelector('.sp-js-select').value;
-                const qty = Number(row.querySelector('.sp-js-qty').value) || 0;
-                const harga = Number(row.querySelector('.sp-js-harga').value) || 0;
+                const kode = row.querySelector('select').value;
+                const qty = Number(row.querySelector('.row-qty').value) || 0;
+                const harga = Number(row.querySelector('.row-harga').value) || 0;
 
-                const sp = (db.sparepart || []).find(s => s.kode === kode);
-                if(!kode || qty <= 0 || (sp && qty > sp.stok)) valid = false;
+                const sp = db.sparepart.find(s => s.kode === kode);
+                if (!sp || qty > sp.stok) isValid = false;
 
-                items.push({
-                    kode,
-                    nama: sp ? sp.nama : '',
-                    qty,
-                    harga,
-                    modal: sp ? sp.hargabeli : 0,
-                    subtotal: qty * harga
-                });
-            });
-
-            if(!valid || items.length === 0) {
-                showToast("Harap periksa ketersediaan stok & item sparepart!", "error");
-                return;
-            }
-
-            const grandTotalNum = items.reduce((sum, i) => sum + i.subtotal, 0);
-
-            const record = {
-                id: 'JS' + Date.now(),
-                tgl: document.getElementById('js-tgl').value,
-                customer: document.getElementById('js-customer').value,
-                grandTotal: grandTotalNum,
-                items: items
-            };
-
-            db.penjualanSparepart.push(record);
-
-            // Potong stok
-            items.forEach(item => {
-                const spIdx = db.sparepart.findIndex(s => s.kode === item.kode);
-                if(spIdx !== -1) {
-                    db.sparepart[spIdx].stok = Number(db.sparepart[spIdx].stok) - item.qty;
+                if (sp) {
+                    const subtotal = qty * harga;
+                    const labaItem = subtotal - (qty * sp.hargabeli);
+                    totalLaba += labaItem;
+                    items.push({ kode, nama: sp.nama, qty, harga, subtotal, modalBeli: sp.hargabeli });
                 }
             });
 
+            if (!isValid || items.length === 0) {
+                showToast("Periksa stok atau item yang dipilih!", "error");
+                return;
+            }
+
+            const grandTotal = items.reduce((s, i) => s + i.subtotal, 0);
+            const recordJual = {
+                id: 'JS' + Date.now(),
+                tgl: document.getElementById('js-tgl').value,
+                customer: document.getElementById('js-customer').value,
+                items,
+                total: grandTotal,
+                laba: totalLaba
+            };
+
+            items.forEach(item => {
+                const sp = db.sparepart.find(s => s.kode === item.kode);
+                if (sp) sp.stok = Number(sp.stok) - item.qty;
+            });
+
+            db.penjualanSparepart.push(recordJual);
             saveDB();
+
+            showToast("Penjualan Sparepart berhasil diselesaikan!");
+            cetakNotaSparepart(recordJual);
             initJualSparepartForm();
-            refreshDashboard();
-            showToast("Penjualan Sparepart Berhasil Diproses!");
-            cetakNotaPenjualan('sparepart', record);
         }
 
-        // --- MANAJEMEN HUTANG ---
+        function cetakNotaSparepart(p) {
+            const notaContainer = document.getElementById('nota-content');
+            let itemRows = '';
+            p.items.forEach(i => {
+                itemRows += `<tr><td class="py-1">${i.nama} x ${i.qty}</td><td class="text-right py-1">${formatRupiah(i.subtotal)}</td></tr>`;
+            });
+
+            notaContainer.innerHTML = `
+                <div class="text-center border-b pb-2">
+                    <h3 class="font-bold text-base uppercase">${db.pengaturan.namaToko}</h3>
+                    <p class="text-[11px]">${db.pengaturan.alamat}</p>
+                </div>
+                <div class="text-xs space-y-1">
+                    <p><strong>No Nota:</strong> ${p.id}</p>
+                    <p><strong>Tanggal:</strong> ${p.tgl}</p>
+                    <p><strong>Customer:</strong> ${p.customer}</p>
+                </div>
+                <hr class="border-dashed my-2">
+                <table class="w-full text-xs text-left">
+                    <thead><tr class="border-b"><th>Item</th><th class="text-right">Subtotal</th></tr></thead>
+                    <tbody>${itemRows}</tbody>
+                </table>
+                <hr class="border-dashed my-2">
+                <div class="flex justify-between font-bold text-sm">
+                    <span>TOTAL</span>
+                    <span>${formatRupiah(p.total)}</span>
+                </div>
+                <div class="text-center text-[10px] mt-4 border-t pt-2 text-gray-500">
+                    <p>Terima Kasih Atas Kunjungan Anda!</p>
+                </div>
+            `;
+            document.getElementById('modal-nota').classList.remove('hidden');
+        }
+
+        // --- KELOLA HUTANG ---
+        function simpanHutang(e) {
+            e.preventDefault();
+            const nominalUtama = Number(document.getElementById('htg-nominal').value) || 0;
+            const bunga = Number(document.getElementById('htg-bunga').value) || 0;
+            const totalHutang = nominalUtama + bunga;
+
+            const record = {
+                id: 'H' + Date.now(),
+                jenis: document.getElementById('htg-jenis').value,
+                tgl: document.getElementById('htg-tgl').value,
+                nominalUtama,
+                bunga,
+                totalHutang,
+                sudahBayar: 0,
+                sisa: totalHutang,
+                ket: document.getElementById('htg-ket').value,
+                status: 'Belum Lunas'
+            };
+
+            db.hutang.push(record);
+            saveDB();
+
+            showToast("Catatan hutang berhasil ditambahkan.");
+            document.getElementById('form-hutang').reset();
+            renderTabelHutang();
+        }
+
         function renderTabelHutang() {
-            document.getElementById('htg-tgl').value = new Date().toISOString().split('T')[0];
             const tbody = document.getElementById('tabel-hutang-body');
             tbody.innerHTML = '';
 
             let totalSisa = 0;
-            if ((db.hutang || []).length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Belum ada record hutang.</td></tr>`;
-                document.getElementById('summary-sisa-hutang').innerText = "Rp 0";
+            const items = (db.hutang || []);
+
+            if (items.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Tidak ada tanggungan hutang.</td></tr>`;
+                document.getElementById('summary-sisa-hutang').innerText = formatRupiah(0);
                 return;
             }
 
-            (db.hutang || []).forEach(h => {
-                const sisa = Number(h.total) - Number(h.terbayar);
-                totalSisa += sisa;
-                const statusBadge = sisa <= 0 
-                    ? `<span class="px-2 py-0.5 rounded text-[10px] bg-emerald-900/40 text-emerald-400 border border-emerald-800">Lunas</span>` 
-                    : `<span class="px-2 py-0.5 rounded text-[10px] bg-amber-900/40 text-amber-400 border border-amber-800">Belum Lunas</span>`;
+            items.forEach(h => {
+                totalSisa += Number(h.sisa);
+                const isLunas = h.status === 'Lunas';
+                const badgeStatus = isLunas 
+                    ? `<span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Lunas</span>`
+                    : `<span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-400 border border-amber-500/30">Belum Lunas</span>`;
 
                 tbody.innerHTML += `
-                    <tr class="hover:bg-slate-900/40">
-                        <td class="p-2 text-xs font-semibold text-white">${h.jenis}</td>
-                        <td class="p-2 text-xs text-slate-300">${h.keterangan || '-'}</td>
-                        <td class="p-2 text-xs">${formatRupiah(h.total)}</td>
-                        <td class="p-2 text-xs font-bold text-amber-400">${formatRupiah(sisa)}</td>
-                        <td class="p-2 text-xs">${statusBadge}</td>
-                        <td class="p-2 text-center">
-                            ${sisa > 0 ? `<button onclick="openModalBayarHutang('${h.id}')" class="text-xs bg-brand-600 hover:bg-brand-700 text-white px-2 py-1 rounded mr-1">Bayar</button>` : ''}
-                            <button onclick="hapusHutang('${h.id}')" class="text-rose-400 hover:text-rose-300 p-1"><i class="fa-solid fa-trash"></i></button>
+                    <tr>
+                        <td class="p-2 font-medium text-white text-xs">${h.jenis}</td>
+                        <td class="p-2 text-xs text-slate-400">${h.ket || '-'}</td>
+                        <td class="p-2 text-xs text-slate-300 font-semibold">${formatRupiah(h.totalHutang)}</td>
+                        <td class="p-2 text-xs font-bold text-amber-400">${formatRupiah(h.sisa)}</td>
+                        <td class="p-2 text-center">${badgeStatus}</td>
+                        <td class="p-2 text-center space-x-1">
+                            ${!isLunas ? `<button onclick="openModalBayarHutang('${h.id}')" class="p-1 px-2 rounded bg-emerald-950/50 text-emerald-400 border border-emerald-800/40 text-xs hover:bg-emerald-900/50">Cicil / Bayar</button>` : ''}
+                            <button onclick="hapusHutang('${h.id}')" class="p-1 px-1.5 rounded bg-rose-950/50 text-rose-400 border border-rose-800/40 text-xs hover:bg-rose-900/50"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
                 `;
@@ -2180,33 +2253,11 @@
             document.getElementById('summary-sisa-hutang').innerText = formatRupiah(totalSisa);
         }
 
-        function simpanHutang(e) {
-            e.preventDefault();
-            const nominal = Number(document.getElementById('htg-nominal').value) || 0;
-            const bunga = Number(document.getElementById('htg-bunga').value) || 0;
-
-            const record = {
-                id: 'HTG' + Date.now(),
-                jenis: document.getElementById('htg-jenis').value,
-                tgl: document.getElementById('htg-tgl').value,
-                nominal: nominal,
-                bunga: bunga,
-                total: nominal + bunga,
-                terbayar: 0,
-                keterangan: document.getElementById('htg-ket').value
-            };
-
-            db.hutang.push(record);
-            saveDB();
-            document.getElementById('form-hutang').reset();
-            renderTabelHutang();
-            refreshDashboard();
-            showToast("Record hutang baru disimpan!");
-        }
-
         function openModalBayarHutang(id) {
             document.getElementById('bayar-htg-id').value = id;
             document.getElementById('bayar-htg-tgl').value = new Date().toISOString().split('T')[0];
+            document.getElementById('bayar-htg-nominal').value = '';
+            document.getElementById('bayar-htg-ket').value = '';
             document.getElementById('modal-bayar-hutang').classList.remove('hidden');
         }
 
@@ -2217,29 +2268,32 @@
         function simpanPembayaranHutang(e) {
             e.preventDefault();
             const id = document.getElementById('bayar-htg-id').value;
-            const bayar = Number(document.getElementById('bayar-htg-nominal').value) || 0;
-            const ket = document.getElementById('bayar-htg-ket').value;
+            const h = db.hutang.find(item => item.id === id);
+            if (!h) return;
+
+            const nominal = Number(document.getElementById('bayar-htg-nominal').value) || 0;
             const tgl = document.getElementById('bayar-htg-tgl').value;
+            const ket = document.getElementById('bayar-htg-ket').value;
 
-            const idx = (db.hutang || []).findIndex(h => h.id === id);
-            if (idx !== -1) {
-                db.hutang[idx].terbayar = Number(db.hutang[idx].terbayar) + bayar;
-
-                // Catat di pengeluaran operasional
-                db.pengeluaran.push({
-                    id: 'EXP' + Date.now(),
-                    kategori: 'Cicilan Hutang',
-                    tgl: tgl,
-                    nominal: bayar,
-                    keterangan: `Bayar Hutang [${db.hutang[idx].jenis}] - ${ket}`
-                });
-
-                saveDB();
-                closeModalBayarHutang();
-                renderTabelHutang();
-                refreshDashboard();
-                showToast("Pembayaran hutang dicatat & memotong kas pengeluaran!");
+            h.sudahBayar = Number(h.sudahBayar) + nominal;
+            h.sisa = Number(h.totalHutang) - h.sudahBayar;
+            if (h.sisa <= 0) {
+                h.sisa = 0;
+                h.status = 'Lunas';
             }
+
+            db.pengeluaran.push({
+                id: 'E' + Date.now(),
+                kategori: 'Cicilan Hutang',
+                tgl,
+                nominal,
+                ket: `Pembayaran ${h.jenis}: ${ket}`
+            });
+
+            saveDB();
+            closeModalBayarHutang();
+            renderTabelHutang();
+            showToast("Pembayaran cicilan hutang tersimpan!");
         }
 
         function hapusHutang(id) {
@@ -2247,8 +2301,7 @@
                 db.hutang = db.hutang.filter(h => h.id !== id);
                 saveDB();
                 renderTabelHutang();
-                refreshDashboard();
-                showToast("Record hutang dihapus!");
+                showToast("Record hutang dihapus.");
             }
         }
 
@@ -2257,57 +2310,67 @@
             const tbody = document.getElementById('tabel-opname-body');
             tbody.innerHTML = '';
 
-            if ((db.sparepart || []).length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Belum ada sparepart.</td></tr>`;
+            const items = db.sparepart || [];
+            if (items.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Tidak ada sparepart untuk diopname.</td></tr>`;
                 return;
             }
 
-            (db.sparepart || []).forEach(s => {
+            items.forEach(sp => {
                 tbody.innerHTML += `
-                    <tr class="hover:bg-slate-900/40" data-kode="${s.kode}">
-                        <td class="p-3 font-semibold text-white">${s.kode}</td>
-                        <td class="p-3">${s.nama}</td>
-                        <td class="p-3 font-bold text-slate-300">${s.stok} unit</td>
-                        <td class="p-3"><input type="number" value="${s.stok}" class="opname-fisik w-20 bg-slate-900 border border-slate-800 rounded p-1.5 text-center text-xs font-bold" oninput="hitungSelisihOpname(this, ${s.stok})"></td>
+                    <tr id="opname-row-${sp.kode}">
+                        <td class="p-3 font-mono text-brand-400 font-semibold">${sp.kode}</td>
+                        <td class="p-3 font-medium text-white">${sp.nama}</td>
+                        <td class="p-3 font-bold text-slate-300">${sp.stok}</td>
+                        <td class="p-3"><input type="number" value="${sp.stok}" oninput="hitungSelisihOpname('${sp.kode}', ${sp.stok})" class="input-stok-fisik w-20 bg-slate-900 border border-slate-800 rounded p-1.5 text-center text-sm font-bold focus:outline-none focus:border-brand-500"></td>
                         <td class="p-3 font-bold opname-selisih text-emerald-400">0</td>
-                        <td class="p-3"><input type="text" placeholder="Keterangan..." class="opname-ket w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-xs"></td>
+                        <td class="p-3"><input type="text" placeholder="Catatan selisih" class="input-ket-opname w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-xs focus:outline-none focus:border-brand-500"></td>
                     </tr>
                 `;
             });
         }
 
-        function hitungSelisihOpname(inputEl, stokSistem) {
-            const fisik = Number(inputEl.value) || 0;
+        function hitungSelisihOpname(kode, stokSistem) {
+            const row = document.getElementById(`opname-row-${kode}`);
+            const fisik = Number(row.querySelector('.input-stok-fisik').value) || 0;
             const selisih = fisik - stokSistem;
-            const row = inputEl.closest('tr');
             const selisihEl = row.querySelector('.opname-selisih');
 
-            selisihEl.innerText = selisih > 0 ? `+${selisih}` : selisih;
-            if(selisih < 0) selisihEl.className = "p-3 font-bold opname-selisih text-rose-400";
-            else if(selisih > 0) selisihEl.className = "p-3 font-bold opname-selisih text-amber-400";
-            else selisihEl.className = "p-3 font-bold opname-selisih text-emerald-400";
+            selisihEl.innerText = selisih;
+            selisihEl.className = `p-3 font-bold opname-selisih ${selisih === 0 ? 'text-emerald-400' : 'text-rose-400'}`;
         }
 
         function simpanStockOpname() {
-            let updated = 0;
-            document.querySelectorAll('#tabel-opname-body tr').forEach(row => {
-                const kode = row.getAttribute('data-kode');
-                const fisik = Number(row.querySelector('.opname-fisik').value) || 0;
-                const ket = row.querySelector('.opname-ket').value;
+            const now = new Date().toISOString().split('T')[0];
+            let countUpdate = 0;
 
-                const spIdx = db.sparepart.findIndex(s => s.kode === kode);
-                if (spIdx !== -1) {
-                    if (db.sparepart[spIdx].stok !== fisik) {
-                        db.sparepart[spIdx].stok = fisik;
-                        updated++;
+            (db.sparepart || []).forEach(sp => {
+                const row = document.getElementById(`opname-row-${sp.kode}`);
+                if (row) {
+                    const fisik = Number(row.querySelector('.input-stok-fisik').value) || 0;
+                    const ket = row.querySelector('.input-ket-opname').value;
+                    const selisih = fisik - sp.stok;
+
+                    if (selisih !== 0) {
+                        db.opname.push({
+                            id: 'SO' + Date.now(),
+                            tgl: now,
+                            kodeSp: sp.kode,
+                            namaSp: sp.nama,
+                            stokSistem: sp.stok,
+                            stokFisik: fisik,
+                            selisih,
+                            ket
+                        });
+                        sp.stok = fisik;
+                        countUpdate++;
                     }
                 }
             });
 
             saveDB();
+            showToast(`${countUpdate} item disesuaikan dari hasil opname!`);
             renderTabelOpname();
-            refreshDashboard();
-            showToast(`Stock Opname selesai! ${updated} item stok disesuaikan.`);
         }
 
         // --- PENGELUARAN ---
@@ -2316,19 +2379,22 @@
             const tbody = document.getElementById('tabel-pengeluaran-body');
             tbody.innerHTML = '';
 
-            if ((db.pengeluaran || []).length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="p-3 text-center text-slate-500">Belum ada pengeluaran dicatat.</td></tr>`;
+            const items = (db.pengeluaran || []).slice().reverse();
+            if (items.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-3 text-center text-slate-500">Belum ada catatan pengeluaran.</td></tr>`;
                 return;
             }
 
-            [...(db.pengeluaran || [])].reverse().forEach(e => {
+            items.forEach(e => {
                 tbody.innerHTML += `
-                    <tr class="hover:bg-slate-900/40">
+                    <tr>
                         <td class="p-2 text-xs text-slate-400">${e.tgl}</td>
                         <td class="p-2 text-xs font-semibold text-white">${e.kategori}</td>
                         <td class="p-2 text-xs font-bold text-rose-400">${formatRupiah(e.nominal)}</td>
-                        <td class="p-2 text-xs text-slate-300">${e.keterangan || '-'}</td>
-                        <td class="p-2 text-center"><button onclick="hapusPengeluaran('${e.id}')" class="text-rose-400 hover:text-rose-300 text-xs"><i class="fa-solid fa-trash"></i></button></td>
+                        <td class="p-2 text-xs text-slate-400">${e.ket || '-'}</td>
+                        <td class="p-2 text-center">
+                            <button onclick="hapusPengeluaran('${e.id}')" class="p-1 px-2 rounded bg-rose-950/50 text-rose-400 border border-rose-800/40 text-xs hover:bg-rose-900/50"><i class="fa-solid fa-trash"></i></button>
+                        </td>
                     </tr>
                 `;
             });
@@ -2337,32 +2403,31 @@
         function simpanPengeluaran(e) {
             e.preventDefault();
             const record = {
-                id: 'EXP' + Date.now(),
+                id: 'E' + Date.now(),
                 kategori: document.getElementById('exp-kategori').value,
                 tgl: document.getElementById('exp-tgl').value,
                 nominal: Number(document.getElementById('exp-nominal').value) || 0,
-                keterangan: document.getElementById('exp-ket').value
+                ket: document.getElementById('exp-ket').value
             };
 
             db.pengeluaran.push(record);
             saveDB();
+
+            showToast("Pengeluaran berhasil dicatat!");
             document.getElementById('form-pengeluaran').reset();
             renderTabelPengeluaran();
-            refreshDashboard();
-            showToast("Pengeluaran berhasil dicatat!");
         }
 
         function hapusPengeluaran(id) {
-            if (confirm("Hapus pengeluaran ini?")) {
+            if (confirm("Hapus catatan pengeluaran ini?")) {
                 db.pengeluaran = db.pengeluaran.filter(e => e.id !== id);
                 saveDB();
                 renderTabelPengeluaran();
-                refreshDashboard();
-                showToast("Pengeluaran dihapus!");
+                showToast("Catatan pengeluaran dihapus.");
             }
         }
 
-        // --- PUSAT LAPORAN & RINGKASAN TOTAL PENJUALAN + LABA ---
+        // --- LAPORAN ---
         function toggleCustomDate(val) {
             const wrapper = document.getElementById('wrapper-custom-tgl');
             if (val === 'custom') wrapper.classList.remove('hidden');
@@ -2374,235 +2439,66 @@
             const periode = document.getElementById('lap-periode').value;
             const container = document.getElementById('laporan-content');
 
-            document.getElementById('lap-title-print').innerText = `Laporan ${document.getElementById('lap-jenis').selectedOptions[0].text}`;
-            document.getElementById('lap-subtitle-print').innerText = `Periode: ${periode.toUpperCase()} | Dicetak: ${new Date().toLocaleDateString('id-ID')}`;
-
-            let html = '';
-            let totalPenjualanAcc = 0;
-            let totalLabaAcc = 0;
+            document.getElementById('lap-subtitle-print').innerText = `Periode: ${periode.toUpperCase()}`;
 
             if (jenis === 'jual-mesin') {
-                const list = db.penjualanMesin || [];
-                list.forEach(item => {
-                    totalPenjualanAcc += Number(item.hargaJual);
-                    totalLabaAcc += Number(item.laba);
+                let html = `<table class="w-full text-left text-xs min-w-[600px]"><thead class="bg-slate-900 border-b text-slate-400 uppercase"><tr><th class="p-2">Tgl</th><th class="p-2">No Mesin</th><th class="p-2">Mesin</th><th class="p-2">Pembeli</th><th class="p-2">Harga Jual</th><th class="p-2">Laba</th></tr></thead><tbody class="divide-y divide-slate-800">`;
+                let totalJual = 0, totalLaba = 0;
+
+                (db.penjualanMesin || []).forEach(p => {
+                    totalJual += Number(p.total);
+                    totalLaba += Number(p.laba);
+                    html += `<tr><td class="p-2">${p.tgl}</td><td class="p-2 font-mono text-brand-400">${p.noMesin}</td><td class="p-2">${p.merkModel}</td><td class="p-2">${p.pembeli}</td><td class="p-2 font-bold text-white">${formatRupiah(p.total)}</td><td class="p-2 text-emerald-400 font-bold">${formatRupiah(p.laba)}</td></tr>`;
                 });
 
-                html = `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 font-sans">
-                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                            <p class="text-xs text-slate-400">Total Penjualan Mesin</p>
-                            <h3 class="text-lg font-bold text-brand-400 mt-1">${formatRupiah(totalPenjualanAcc)}</h3>
-                        </div>
-                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                            <p class="text-xs text-slate-400">Total Laba Penjualan Mesin</p>
-                            <h3 class="text-lg font-bold text-emerald-400 mt-1">${formatRupiah(totalLabaAcc)}</h3>
-                        </div>
-                    </div>
-                    <table class="w-full text-left text-xs min-w-[600px] border-collapse">
-                        <thead>
-                            <tr class="border-b border-slate-800 text-slate-400">
-                                <th class="p-2">Tgl</th>
-                                <th class="p-2">No Mesin</th>
-                                <th class="p-2">Mesin</th>
-                                <th class="p-2">Pembeli</th>
-                                <th class="p-2">Harga Modal</th>
-                                <th class="p-2">Harga Jual</th>
-                                <th class="p-2">Laba</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800">
-                            ${list.map(i => `
-                                <tr>
-                                    <td class="p-2">${i.tgl}</td>
-                                    <td class="p-2 font-bold">${i.noMesin}</td>
-                                    <td class="p-2">${i.deskripsi}</td>
-                                    <td class="p-2">${i.pembeli}</td>
-                                    <td class="p-2 text-slate-400">${formatRupiah(i.modal)}</td>
-                                    <td class="p-2 font-semibold text-brand-400">${formatRupiah(i.hargaJual)}</td>
-                                    <td class="p-2 font-bold text-emerald-400">${formatRupiah(i.laba)}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                        <tfoot>
-                            <tr class="border-t-2 border-slate-700 font-bold bg-slate-900/60">
-                                <td colspan="5" class="p-2 text-right">TOTAL:</td>
-                                <td class="p-2 text-brand-400">${formatRupiah(totalPenjualanAcc)}</td>
-                                <td class="p-2 text-emerald-400">${formatRupiah(totalLabaAcc)}</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                `;
+                html += `</tbody><tfoot class="border-t font-bold"><tr><td colspan="4" class="p-2 text-right">TOTAL:</td><td class="p-2 text-brand-400">${formatRupiah(totalJual)}</td><td class="p-2 text-emerald-400">${formatRupiah(totalLaba)}</td></tr></tfoot></table>`;
+                container.innerHTML = html;
             } else if (jenis === 'jual-sparepart') {
-                const list = db.penjualanSparepart || [];
-                list.forEach(i => {
-                    totalPenjualanAcc += Number(i.grandTotal);
-                    (i.items || []).forEach(sp => {
-                        totalLabaAcc += ((Number(sp.harga) - Number(sp.modal)) * Number(sp.qty));
-                    });
+                let html = `<table class="w-full text-left text-xs min-w-[500px]"><thead class="bg-slate-900 border-b text-slate-400 uppercase"><tr><th class="p-2">Tgl</th><th class="p-2">No Nota</th><th class="p-2">Customer</th><th class="p-2">Total</th><th class="p-2">Laba</th></tr></thead><tbody class="divide-y divide-slate-800">`;
+                let totalJual = 0, totalLaba = 0;
+
+                (db.penjualanSparepart || []).forEach(p => {
+                    totalJual += Number(p.total);
+                    totalLaba += Number(p.laba);
+                    html += `<tr><td class="p-2">${p.tgl}</td><td class="p-2 font-mono text-brand-400">${p.id}</td><td class="p-2">${p.customer}</td><td class="p-2 font-bold text-white">${formatRupiah(p.total)}</td><td class="p-2 text-emerald-400 font-bold">${formatRupiah(p.laba)}</td></tr>`;
                 });
 
-                html = `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 font-sans">
-                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                            <p class="text-xs text-slate-400">Total Penjualan Sparepart</p>
-                            <h3 class="text-lg font-bold text-brand-400 mt-1">${formatRupiah(totalPenjualanAcc)}</h3>
-                        </div>
-                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
-                            <p class="text-xs text-slate-400">Total Estimasi Laba Sparepart</p>
-                            <h3 class="text-lg font-bold text-emerald-400 mt-1">${formatRupiah(totalLabaAcc)}</h3>
-                        </div>
-                    </div>
-                    <table class="w-full text-left text-xs min-w-[600px] border-collapse">
-                        <thead>
-                            <tr class="border-b border-slate-800 text-slate-400">
-                                <th class="p-2">Tgl</th>
-                                <th class="p-2">Customer</th>
-                                <th class="p-2">Jumlah Item</th>
-                                <th class="p-2">Total Penjualan</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800">
-                            ${list.map(i => `
-                                <tr>
-                                    <td class="p-2">${i.tgl}</td>
-                                    <td class="p-2 font-semibold">${i.customer}</td>
-                                    <td class="p-2">${i.items ? i.items.length : 0} Item</td>
-                                    <td class="p-2 font-bold text-brand-400">${formatRupiah(i.grandTotal)}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                        <tfoot>
-                            <tr class="border-t-2 border-slate-700 font-bold bg-slate-900/60">
-                                <td colspan="3" class="p-2 text-right">TOTAL PENJUALAN:</td>
-                                <td class="p-2 text-brand-400">${formatRupiah(totalPenjualanAcc)}</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                `;
-            } else if (jenis === 'labarugi') {
-                let totalJualMesin = (db.penjualanMesin || []).reduce((sum, j) => sum + Number(j.hargaJual), 0);
-                let totalModalMesin = (db.penjualanMesin || []).reduce((sum, j) => sum + Number(j.modal), 0);
-                let totalJualSp = (db.penjualanSparepart || []).reduce((sum, j) => sum + Number(j.grandTotal), 0);
-                let totalModalSp = 0;
+                html += `</tbody><tfoot class="border-t font-bold"><tr><td colspan="3" class="p-2 text-right">TOTAL:</td><td class="p-2 text-brand-400">${formatRupiah(totalJual)}</td><td class="p-2 text-emerald-400">${formatRupiah(totalLaba)}</td></tr></tfoot></table>`;
+                container.innerHTML = html;
+            } else if (jenis === 'stok') {
+                let html = `<table class="w-full text-left text-xs min-w-[600px]"><thead class="bg-slate-900 border-b text-slate-400 uppercase"><tr><th class="p-2">Kode</th><th class="p-2">Nama Sparepart</th><th class="p-2">Kategori</th><th class="p-2">Stok</th><th class="p-2">Nilai Modal</th></tr></thead><tbody class="divide-y divide-slate-800">`;
+                let totalNilai = 0;
 
-                (db.penjualanSparepart || []).forEach(j => {
-                    (j.items || []).forEach(item => totalModalSp += (Number(item.modal) * Number(item.qty)));
+                (db.sparepart || []).forEach(sp => {
+                    const nilai = Number(sp.stok) * Number(sp.hargabeli);
+                    totalNilai += nilai;
+                    html += `<tr><td class="p-2 font-mono text-brand-400">${sp.kode}</td><td class="p-2 font-medium text-white">${sp.nama}</td><td class="p-2">${sp.kategori}</td><td class="p-2 font-bold">${sp.stok}</td><td class="p-2">${formatRupiah(nilai)}</td></tr>`;
                 });
 
-                let totalPengeluaran = (db.pengeluaran || []).reduce((sum, e) => sum + Number(e.nominal), 0);
-
-                totalPenjualanAcc = totalJualMesin + totalJualSp;
-                let totalHPP = totalModalMesin + totalModalSp;
-                let labaKotor = totalPenjualanAcc - totalHPP;
-                totalLabaAcc = labaKotor - totalPengeluaran;
-
-                html = `
-                    <div class="space-y-4 max-w-lg mx-auto font-sans">
-                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-3">
-                            <div class="flex justify-between text-sm border-b border-slate-800 pb-2">
-                                <span>Total Omset Penjualan:</span>
-                                <span class="font-bold text-brand-400">${formatRupiah(totalPenjualanAcc)}</span>
-                            </div>
-                            <div class="flex justify-between text-sm border-b border-slate-800 pb-2">
-                                <span>Total HPP / Modal Terjual:</span>
-                                <span class="font-semibold text-rose-400">-${formatRupiah(totalHPP)}</span>
-                            </div>
-                            <div class="flex justify-between text-sm border-b border-slate-800 pb-2 font-bold">
-                                <span>Laba Kotor:</span>
-                                <span class="text-blue-400">${formatRupiah(labaKotor)}</span>
-                            </div>
-                            <div class="flex justify-between text-sm border-b border-slate-800 pb-2">
-                                <span>Pengeluaran Operasional:</span>
-                                <span class="font-semibold text-rose-400">-${formatRupiah(totalPengeluaran)}</span>
-                            </div>
-                            <div class="flex justify-between text-base font-bold pt-2">
-                                <span>Laba Bersih Akhir:</span>
-                                <span class="${totalLabaAcc >= 0 ? 'text-emerald-400' : 'text-rose-500'}">${formatRupiah(totalLabaAcc)}</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                html += `</tbody><tfoot class="border-t font-bold"><tr><td colspan="4" class="p-2 text-right">TOTAL NILAI STOCK:</td><td class="p-2 text-brand-400">${formatRupiah(totalNilai)}</td></tr></tfoot></table>`;
+                container.innerHTML = html;
             } else {
-                html = `<p class="text-center text-slate-400 py-4">Laporan berhasil dimuat.</p>`;
+                container.innerHTML = `<p class="text-center text-slate-400 py-4">Laporan kategori ini siap dirender sesuai data transaksi.</p>`;
             }
-
-            container.innerHTML = html;
         }
 
-        function printLaporan() {
-            window.print();
-        }
+        function printLaporan() { window.print(); }
 
-        // --- NOTA PENJUALAN ---
-        function cetakNotaPenjualan(tipe, data) {
-            const content = document.getElementById('nota-content');
-            const toko = db.pengaturan || {};
-
-            let detailHtml = '';
-            if (tipe === 'mesin') {
-                detailHtml = `
-                    <div class="border-y border-dashed border-slate-400 py-2 my-2 space-y-1">
-                        <div class="flex justify-between"><span>Barang:</span><span>${data.deskripsi}</span></div>
-                        <div class="flex justify-between"><span>No Mesin:</span><span>${data.noMesin}</span></div>
-                        <div class="flex justify-between"><span>Harga:</span><span>${formatRupiah(data.hargaJual + (data.diskon || 0))}</span></div>
-                        ${data.diskon ? `<div class="flex justify-between text-rose-600"><span>Diskon:</span><span>-${formatRupiah(data.diskon)}</span></div>` : ''}
-                    </div>
-                    <div class="flex justify-between font-bold text-sm"><span>TOTAL:</span><span>${formatRupiah(data.hargaJual)}</span></div>
-                `;
-            } else {
-                detailHtml = `
-                    <div class="border-y border-dashed border-slate-400 py-2 my-2 space-y-1">
-                        ${(data.items || []).map(i => `
-                            <div class="flex justify-between">
-                                <span>${i.nama} x${i.qty}</span>
-                                <span>${formatRupiah(i.subtotal)}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <div class="flex justify-between font-bold text-sm"><span>TOTAL:</span><span>${formatRupiah(data.grandTotal)}</span></div>
-                `;
-            }
-
-            content.innerHTML = `
-                <div class="text-center">
-                    <h3 class="font-bold text-base uppercase">${toko.namaToko || 'TOKO MESIN'}</h3>
-                    <p class="text-[10px]">${toko.alamat || ''}</p>
-                    <p class="text-[10px]">HP: ${toko.hp || ''}</p>
-                </div>
-                <div class="text-[10px] space-y-0.5 border-t border-slate-300 pt-2">
-                    <div>Tgl: ${data.tgl}</div>
-                    <div>Pembeli: ${data.pembeli || data.customer || 'Umum'}</div>
-                </div>
-                ${detailHtml}
-                <div class="text-center text-[10px] pt-4 border-t border-dashed border-slate-400">
-                    <p>Terima Kasih Atas Kunjungan Anda!</p>
-                    <p>Barang yang sudah dibeli tidak dapat ditukar/dikembalikan.</p>
-                </div>
-            `;
-
-            document.getElementById('modal-nota').classList.remove('hidden');
-        }
-
-        function closeModalNota() {
-            document.getElementById('modal-nota').classList.add('hidden');
-        }
-
-        // --- PENGATURAN & SYSTEM DATA ---
+        // --- PENGATURAN & BACKUP ---
         function loadPengaturanForm() {
-            const p = db.pengaturan || {};
-            document.getElementById('set-nama-toko').value = p.namaToko || '';
-            document.getElementById('set-alamat').value = p.alamat || '';
-            document.getElementById('set-hp').value = p.hp || '';
-            document.getElementById('set-pct-modal').value = p.pctModal || 70;
-            document.getElementById('set-pct-tabungan').value = p.pctTabungan || 20;
-            document.getElementById('set-pct-darurat').value = p.pctDarurat || 10;
+            document.getElementById('set-nama-toko').value = db.pengaturan.namaToko || '';
+            document.getElementById('set-alamat').value = db.pengaturan.alamat || '';
+            document.getElementById('set-hp').value = db.pengaturan.hp || '';
+            document.getElementById('set-pct-modal').value = db.pengaturan.pctModal || 70;
+            document.getElementById('set-pct-tabungan').value = db.pengaturan.pctTabungan || 20;
+            document.getElementById('set-pct-darurat').value = db.pengaturan.pctDarurat || 10;
         }
 
         function applyPengaturanUI() {
-            const p = db.pengaturan || {};
-            if(document.getElementById('store-name-display')) document.getElementById('store-name-display').innerText = p.namaToko || 'Toko Mesin';
-            if(document.getElementById('brand-title')) document.getElementById('brand-title').innerText = (p.namaToko || 'MESIN GASOLINE').toUpperCase();
+            if (db.pengaturan) {
+                document.getElementById('store-name-display').innerText = db.pengaturan.namaToko || 'Toko Mesin';
+                document.getElementById('brand-title').innerText = (db.pengaturan.namaToko || 'MESIN GASOLINE').toUpperCase();
+            }
         }
 
         function simpanPengaturan(e) {
@@ -2618,53 +2514,55 @@
 
             saveDB();
             applyPengaturanUI();
-            refreshDashboard();
-            showToast("Pengaturan sistem berhasil disimpan!");
+            showToast("Pengaturan toko berhasil diperbarui!");
         }
 
         function backupDataJSON() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
-            const dlAnchorElem = document.createElement('a');
-            dlAnchorElem.setAttribute("href", dataStr);
-            dlAnchorElem.setAttribute("download", `backup_pembukuan_mesin_${new Date().toISOString().split('T')[0]}.json`);
-            dlAnchorElem.click();
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `backup_pembukuan_mesin_${new Date().toISOString().split('T')[0]}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Backup JSON berhasil diunduh.");
         }
 
-        function restoreDataJSON(event) {
-            const fileReader = new FileReader();
-            fileReader.onload = function(e) {
+        function restoreDataJSON(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
                 try {
-                    const parsedData = JSON.parse(e.target.result);
-                    if (parsedData) {
-                        window.db = parsedData;
+                    const importedDb = JSON.parse(evt.target.result);
+                    if (importedDb && importedDb.mesin && importedDb.sparepart) {
+                        db = importedDb;
                         saveDB();
-                        refreshDashboard();
-                        showToast("Data berhasil dipulihkan dari file backup JSON!");
+                        showToast("Data sistem berhasil dipulihkan!");
+                    } else {
+                        showToast("Format file JSON tidak valid!", "error");
                     }
                 } catch (err) {
-                    showToast("Format file JSON tidak valid!", "error");
+                    showToast("Gagal membaca file JSON!", "error");
                 }
             };
-            if(event.target.files[0]) fileReader.readAsText(event.target.files[0]);
+            reader.readAsText(file);
         }
 
         function resetDataSystem() {
-            if (confirm("PERINGATAN: Seluruh data mesin, sparepart, dan transaksi akan dihapus secara permanen. Lanjutkan?")) {
-                window.db = {
-                    pin: "1234",
-                    pengaturan: db.pengaturan,
-                    mesin: [],
-                    sparepart: [],
-                    pembelianSparepart: [],
-                    penjualanMesin: [],
-                    penjualanSparepart: [],
-                    pengeluaran: [],
-                    opname: [],
-                    hutang: []
-                };
+            if (confirm("PERINGATAN: Seluruh data transaksi, mesin, dan sparepart akan dihapus permanen! Lanjutkan?")) {
+                db.mesin = [];
+                db.sparepart = [];
+                db.pembelianSparepart = [];
+                db.penjualanMesin = [];
+                db.penjualanSparepart = [];
+                db.pengeluaran = [];
+                db.opname = [];
+                db.hutang = [];
                 saveDB();
+                showToast("Sistem telah direset bersih.");
                 refreshDashboard();
-                showToast("Sistem berhasil direset total.");
             }
         }
     </script>
